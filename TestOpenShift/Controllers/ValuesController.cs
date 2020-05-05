@@ -19,9 +19,23 @@ namespace TestOpenShift.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<ActionResult<string>> Get(int id)
         {
-            return "value";
+            ServiceReferenceTemp.ServiceClient client = new ServiceReferenceTemp.ServiceClient();
+            try
+            {
+                return await client.GetDataAsync(id);
+            }
+            finally
+
+            {
+                if (client != null)
+                {
+                    ((IDisposable)client).Dispose();
+                }
+
+            }
+
         }
 
         // POST api/values
