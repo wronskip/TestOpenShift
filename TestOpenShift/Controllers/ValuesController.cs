@@ -35,7 +35,7 @@ namespace TestOpenShift.Controllers
                 }
 
             }
-
+            //return "values";
         }
 
         // POST api/values
