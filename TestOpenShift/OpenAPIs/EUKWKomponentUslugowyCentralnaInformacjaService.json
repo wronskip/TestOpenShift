@@ -1,0 +1,7378 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ms.gov.pl/ekw/channel/centralnainformacja/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ws.services.eukw.ms.gov.pl/EKWWnioski/" name="EUKWKomponentUslugowyCentralnaInformacjaService" targetNamespace="http://ms.gov.pl/ekw/channel/centralnainformacja/">
+  <wsdl:types>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.services.eukw.ms.gov.pl/EKWWnioski/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ms.gov.pl/ekw/esb/cmd" elementFormDefault="qualified" targetNamespace="http://ws.services.eukw.ms.gov.pl/EKWWnioski/" version="1.0">
+
+  
+  <xs:import namespace="http://ms.gov.pl/ekw/esb/cmd"/>
+
+  
+  <xs:element name="ValidationException">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="validationException" type="tns:validationResults"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="aktualizujCzasochlonnaOperacje">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+        
+        <xs:element name="chwilaOperacji" type="xs:long"/>
+        
+        <xs:element name="typOperacji" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="aktualizujCzasochlonnaOperacjeResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="aktualizujKonfiguracje">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="podsystem" type="xs:string"/>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="daneKonfiguracyjne" nillable="true" type="tns:daneKonfiguracyjne"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="aktualizujKonfiguracjeResp">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="aktualizujZdarzenieSystemowe">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zdarzenieSystemowe" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="aktualizujZdarzenieSystemoweResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zdarzenieSystemoweResp" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="dodajBlokadeDostepuSadu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="blokadaDostepuSadu" type="tns:blokadaDostepuSaduTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="dodajBlokadeDostepuSaduResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="result" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="dodajParametrKonfiguracyjny">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="daneParametru" type="tns:DaneDodajParametr"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="dodajParametrKonfiguracyjnyResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="status" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="edytujParametrKonfiguracyjny">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="daneParametru" type="tns:DaneDodajParametr"/>
+        
+        <xs:element name="kodParametruOld" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="edytujParametrKonfiguracyjnyResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="status" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="generujPotwierdzenie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="generujPotwierdzenieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="generujURL">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="generujURLResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="ulr" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="inkrementujLiczbeLogowan">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kluczStatystyka" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="inkrementujLiczbeLogowanResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="liczbaLogowan" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="map">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:MapItemType"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="modyfikujKonfiguracjeTeletransmisji">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="konfiguracja" type="tns:KonfiguracjaTeletransmisjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="modyfikujKonfiguracjeTeletransmisjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="modyfikujParametrKonfiguracyjny">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="daneKonfiguracyjne" type="tns:daneKonfiguracyjne"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="modyfikujParametrKonfiguracyjnyResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="naprawStatusWniosku">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="naprawStatusWnioskuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="response" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzBlokadeDostepuSadu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzBlokadeDostepuSaduResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="blokadaDostepuSadu" nillable="true" type="tns:blokadaDostepuSaduTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzBlokadyDostepuSadow">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzBlokadyDostepuSadowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="blokadyDostepuSadow" nillable="true" type="tns:blokadaDostepuSaduTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCalkowitaLiczbeLogowan">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kluczStatystyka" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCalkowitaLiczbeLogowanResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="liczbaLogowan" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCalkowitaLiczbeWgladowDoKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWgladuDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCalkowitaLiczbeWgladowDoKWResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="ilosc" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCalkowitaLiczbeZdarzen">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWyszukiwaniaZdarzenTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCalkowitaLiczbeZdarzenResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="liczbaZdarzen" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCaptcha">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzCaptchaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="captcha" type="tns:CaptchaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZOPZWD">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kRaportZOPZWD" type="tns:KryteriaRaportZOPZWD"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZOPZWDOnline">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kRaportZOPZWDOnline" type="tns:KryteriaRaportZOPZWDOnline"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZOPZWDOnlineResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zRaportZOPZWDOnline" type="tns:ZwrotnyRaportZOPZWDOnline"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZOPZWDResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zRaportZOPZWD" type="tns:ZwrotnyRaportZOPZWD"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZWD">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kRaportZWD" type="tns:KryteriaRaportZWD"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZWDResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zRaportZWD" type="tns:ZwrotnyRaportZWD"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZWISIR">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kRaportZWISIR" type="tns:KryteriaRaportZWISIR"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZWISIRResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zRaportZWISIR" type="tns:ZwrotnyRaportZWISIR"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZZWOWD">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kRaportZZWOWD" type="tns:KryteriaRaportZZWOWD"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDaneDoRaportuZZWOWDResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zRaportZZWOWD" type="tns:ZwrotnyRaportZZWOWD"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDanePlatnosciDlaSesji">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="idSesji" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDanePlatnosciDlaSesjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="danePlatnosciTo" type="tns:DanePlatnosciTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDostepneTypyDokumentow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorKW" type="tns:identyfikatorKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDostepneTypyDokumentowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="status" nillable="true" type="tns:DocumentTypeTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDuzeKsiegi">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzDuzeKsiegiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="duzaKsiegaLista" nillable="true" type="tns:duzaKsiegaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzHistorieWydrukuWnioskuRequest">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="id" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzHistoryczneWynikiWyszukania">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWgladuDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzHistoryczneWynikiWyszukaniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="ilosc" nillable="true" type="tns:HistorycznyWynikWyszkiwaniaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzKonfiguracjeReq">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="podsystem" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzKonfiguracjeResp">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="daneKonfiguracyjne" nillable="true" type="tns:daneKonfiguracyjne"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzKonfiguracjeTeletransmisji">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzKonfiguracjeTeletransmisjiDlaSystemuPoKluczu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="klucz" type="xs:string"/>
+        
+        <xs:element name="system" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzKonfiguracjeTeletransmisjiDlaSystemuPoKluczuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="konfiguracja" type="tns:KonfiguracjaTeletransmisjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzKonfiguracjeTeletransmisjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="konfiguracja" nillable="true" type="tns:KonfiguracjaTeletransmisjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzLiczbeZalogowanychUzytkownikow">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzLiczbeZalogowanychUzytkownikowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="liczbaZalogowanych" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeMiejscowoscEci">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeMiejscowoscEciResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="out" nillable="true" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeParametrowKonfiguracyjnych">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeParametrowKonfiguracyjnychPoKategori">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kategoriaParametru" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeParametrowKonfiguracyjnychPoKategoriResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="parametrKonfiguracyjnyKategoriaLista" nillable="true" type="tns:ParametrKonfiguracyjny"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeParametrowKonfiguracyjnychResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="parametrKonfiguracyjnyLista" nillable="true" type="tns:ParametrKonfiguracyjny"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeWnioskow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzListeWnioskowWgKryteriowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosekKryteriaTO" type="tns:wniosekKryteriaTO"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzNumerKolejnyWgladu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzNumerKolejnyWgladuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="numerKolejny" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzOpisKsiegiWieczystej">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorKWTo" type="tns:identyfikatorKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzOpisKsiegiWieczystejResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="opisKsiegiWieczystej" type="ns1:OpisKsiegiWieczystej"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzParametrKonfiguracyjny">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element minOccurs="0" name="klucz" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzParametrKonfiguracyjnyPoKodzie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kodParametru" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzParametrKonfiguracyjnyPoKodzieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="parametrKonfiguracyjny" type="tns:ParametrKonfiguracyjny"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzParametrKonfiguracyjnyResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="daneKonfiguracyjne" nillable="true" type="tns:daneKonfiguracyjne"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzParametrSystemowyPoKodzie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kod" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzParametrSystemowyPoKodzieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="parametrSystemowy" type="tns:ParametrSystemowy"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzSesjeUzytkownika">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzSesjeUzytkownikaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="sesjaUzytkownika" type="tns:UzytkownikSesjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzSesjeUzytkownikow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzSesjeUzytkownikowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="sesjaUzytkownika" nillable="true" type="tns:UzytkownikSesjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzSlownikECI">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzSlownikECIResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="mapaSlownikowECI" type="tns:MapType"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzStroneWgladowDoKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWgladuDoKWTo"/>
+        
+        <xs:element name="numerStrony" type="xs:int"/>
+        
+        <xs:element name="liczbaRekordowNaStronie" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzStroneWgladowDoKWResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="wgladKw" nillable="true" type="tns:WgladDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzStroneZdarzenia">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="numerStrony" type="xs:int"/>
+        
+        <xs:element name="liczbaRekordowNaStronie" type="xs:int"/>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWyszukiwaniaZdarzenTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzStroneZdarzeniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="listaZdarzen" nillable="true" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzTypOperacjiUzytkownika">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzTypOperacjiUzytkownikaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="typOperacji" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWartoscParametruKonfiguracyjnegoPoKodzie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kodParametru" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWartoscParametruKonfiguracyjnegoPoKodzieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wartoscParametru" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWniosekResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosek" type="tns:wniosekPodgladTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWszystkieWgladyDoKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWgladuDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWszystkieWgladyDoKWResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="wgladKw" nillable="true" type="tns:WgladDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWszystkieZdarzenia">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWyszukiwaniaZdarzenTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzWszystkieZdarzeniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="listaZdarzen" nillable="true" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzZdarzenieSystemowe">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZdarzenia" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzZdarzenieSystemoweResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zdarzenieSystemoweResp" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzZlecenie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="pobierzZlecenieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zlecenie" type="tns:zlecenieTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="przeliczZlecenie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="przeliczZlecenieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kwota" type="xs:double"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="sprawdzCzyDuzaKsiega">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorKW" type="tns:identyfikatorKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="sprawdzCzyDuzaKsiegaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="duzaKsiega" type="xs:boolean"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="sprawdzStatusCzasomierza">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="czasomierzKryteriaTo" type="tns:CzasomierzKryteriaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="sprawdzStatusCzasomierzaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="status" type="tns:StatusCzasomierzaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="uruchomCzasomierz">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="czasomierzKryteriaTo" type="tns:CzasomierzKryteriaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="uruchomCzasomierzResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="ustawOplaconeDlaSesji">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="idSesji" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="ustawOplaconeDlaSesjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="ustawZlozenieDostarczenie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="xs:string"/>
+        
+        <xs:element name="zlozenie" type="xs:string"/>
+        
+        <xs:element name="dostarczenie" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunBlokadeDostepuSadu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="id" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunBlokadeDostepuSaduResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="result" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunDaneSesjiuzytkownika">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunDaneSesjiuzytkownikaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunHistorycznyWynikWyszukiwania">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="idHistWynWysz" type="xs:long"/>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunHistorycznyWynikWyszukiwaniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunKonfiguracjeTeletransmisji">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="konfiguracja" type="tns:KonfiguracjaTeletransmisjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunKonfiguracjeTeletransmisjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunWszystkieDaneSesji">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunWszystkieDaneSesjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunZdarzenieSystemowe">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="dataOd" type="xs:date"/>
+        
+        <xs:element name="dataDo" type="xs:date"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="usunZdarzenieSystemoweResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzDanePlatnosci">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="danePlatnosciTo" type="tns:DanePlatnosciTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzDanePlatnosciResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzKonfiguracjeTeletransmisji">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="konfiguracja" type="tns:KonfiguracjaTeletransmisjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzKonfiguracjeTeletransmisjiResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzNowyWgladDoKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="nowyWglad" type="tns:WgladDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzNowyWgladDoKWResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wgladZapisany" type="tns:WgladDoKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzParametrKonfiguracyjny">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="daneKonfiguracyjne" type="tns:daneKonfiguracyjne"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzParametrKonfiguracyjnyResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzSesjeUzytkownika">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="sesjaUzytkownika" type="tns:UzytkownikSesjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzSesjeUzytkownikaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="sesja" type="tns:UzytkownikSesjaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzZdarzenieSystemowe">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zdarzenieSystemowe" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="utworzZdarzenieSystemoweResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zdarzenieSystemoweResp" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="wyczyscCzasochlonnaOperacje">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorUzytkownika" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="wyczyscCzasochlonnaOperacjeResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="wyslijEmailDoUzytkownika">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="email" type="xs:string"/>
+        
+        <xs:element name="url" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zablokowanyWydzial">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zablokowanyWydzialResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zablokowany" type="xs:boolean"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zaktualizujStatusWgladu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikator" type="xs:int"/>
+        
+        <xs:element name="status" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zaktualizujStatusWgladuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zapiszWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zapiszZlecenie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zlecenie" type="tns:zlecenieTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zapiszZlecenieResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZlecenia" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zatrzymajCzasomierz">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="czasomierzKryteriaTo" type="tns:CzasomierzKryteriaTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zatrzymajCzasomierzResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zmienStanRealizacjiWniosku">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zmodyfikujZlecenie">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zlecenieTo" type="tns:zlecenieTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zwalidujKsiegeWieczystaWCBDKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorKW" type="tns:identyfikatorKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zwalidujKsiegeWieczystaWCBDKWResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="status" type="tns:KWStateTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zweryfikujAutentycznoscWydruku">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorDokumentu" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:element name="zweryfikujAutentycznoscWydrukuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wynikWeryfikacji" type="tns:WynikWeryfikacjiDokumentuTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+
+  
+  <xs:complexType name="slownikProstyTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:string"/>
+      
+      <xs:element name="kod" type="xs:string"/>
+      
+      <xs:element name="wartosc" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="validationResults">
+    
+    <xs:sequence>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="errors" nillable="true" type="tns:validationError"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="validationError">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="field" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="value" type="xs:anyType"/>
+      
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="wnioskujacyTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="nazwisko" type="xs:string"/>
+      
+      <xs:element name="nazwiskoDrugie" type="xs:string"/>
+      
+      <xs:element name="imie" type="xs:string"/>
+      
+      <xs:element name="imieDrugie" type="xs:string"/>
+      
+      <xs:element name="ulica" type="xs:string"/>
+      
+      <xs:element name="dom" type="xs:string"/>
+      
+      <xs:element name="lokal" type="xs:string"/>
+      
+      <xs:element name="miejscowosc" type="xs:string"/>
+      
+      <xs:element name="kod" type="xs:string"/>
+      
+      <xs:element name="poczta" type="xs:string"/>
+      
+      <xs:element name="kraj" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="uzytkownikTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="login" type="xs:string"/>
+      
+      <xs:element name="imie" type="xs:string"/>
+      
+      <xs:element name="nazwisko" type="xs:string"/>
+      
+      <xs:element name="stanowisko" type="xs:string"/>
+      
+      <xs:element name="kodEci" type="xs:string"/>
+      
+      <xs:element name="zalogowany" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="NumerKsiegiTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="kwId" type="xs:long"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element name="numerKW" type="xs:string"/>
+      
+      <xs:element name="cyfraKontrolna" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="odpisykwwlkTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="kwiId" type="xs:long"/>
+      
+      <xs:element name="pdfZwStr" type="xs:int"/>
+      
+      <xs:element name="pdfZwChwila" type="xs:dateTime"/>
+      
+      <xs:element name="pdfZw" type="xs:boolean"/>
+      
+      <xs:element name="zwChanged" type="xs:boolean"/>
+      
+      <xs:element name="pdfZuStr" type="xs:int"/>
+      
+      <xs:element name="pdfZuChwila" type="xs:dateTime"/>
+      
+      <xs:element name="pdfZu" type="xs:boolean"/>
+      
+      <xs:element name="zuChanged" type="xs:boolean"/>
+      
+      <xs:element name="xmlZwStr" type="xs:int"/>
+      
+      <xs:element name="xmlZuStr" type="xs:int"/>
+      
+      <xs:element name="xmlChwila" type="xs:dateTime"/>
+      
+      <xs:element name="xmlKbajt" type="xs:int"/>
+      
+      <xs:element name="xmlChanged" type="xs:boolean"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="MapItemType">
+    
+    <xs:sequence>
+      
+      <xs:element name="key" type="xs:anyType"/>
+      
+      <xs:element name="value" type="xs:anyType"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="DanePlatnosciTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="sessionId" type="xs:string"/>
+      
+      <xs:element name="klientId" type="xs:string"/>
+      
+      <xs:element name="nazwa" type="xs:string"/>
+      
+      <xs:element name="koszt" type="xs:int"/>
+      
+      <xs:element name="opis" type="xs:string"/>
+      
+      <xs:element name="oplacone" type="xs:string"/>
+      
+      <xs:element name="data" type="xs:date"/>
+      
+      <xs:element name="adresEmail" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="DaneDodajParametr">
+    
+    <xs:sequence>
+      
+      <xs:element name="kodParametru" type="xs:string"/>
+      
+      <xs:element name="wartoscParametru" type="xs:string"/>
+      
+      <xs:element name="opisParametru" type="xs:string"/>
+      
+      <xs:element name="kategoriaParametru" type="xs:string"/>
+      
+      <xs:element name="typParametru" type="xs:string"/>
+      
+      <xs:element name="identyfikatorModyfikujacego" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaRaportZWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="dataOD" type="xs:string"/>
+      
+      <xs:element name="dataDO" type="xs:string"/>
+      
+      <xs:element name="kodECI" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ZwrotnyRaportZOPZWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="zwp" type="xs:int"/>
+      
+      <xs:element name="zwd" type="xs:int"/>
+      
+      <xs:element name="zupp" type="xs:int"/>
+      
+      <xs:element name="zupd" type="xs:int"/>
+      
+      <xs:element name="wjdp" type="xs:int"/>
+      
+      <xs:element name="wjdd" type="xs:int"/>
+      
+      <xs:element name="wddp" type="xs:int"/>
+      
+      <xs:element name="wddd" type="xs:int"/>
+      
+      <xs:element name="wtdp" type="xs:int"/>
+      
+      <xs:element name="wtdd" type="xs:int"/>
+      
+      <xs:element name="wcdp" type="xs:int"/>
+      
+      <xs:element name="wcdd" type="xs:int"/>
+      
+      <xs:element name="kwzp" type="xs:int"/>
+      
+      <xs:element name="kwzd" type="xs:int"/>
+      
+      <xs:element name="czwp" type="xs:double"/>
+      
+      <xs:element name="czwd" type="xs:double"/>
+      
+      <xs:element name="czupp" type="xs:double"/>
+      
+      <xs:element name="czupd" type="xs:double"/>
+      
+      <xs:element name="cwjdp" type="xs:double"/>
+      
+      <xs:element name="cwjdd" type="xs:double"/>
+      
+      <xs:element name="cwddp" type="xs:double"/>
+      
+      <xs:element name="cwddd" type="xs:double"/>
+      
+      <xs:element name="cwtdp" type="xs:double"/>
+      
+      <xs:element name="cwtdd" type="xs:double"/>
+      
+      <xs:element name="cwcdp" type="xs:double"/>
+      
+      <xs:element name="cwcdd" type="xs:double"/>
+      
+      <xs:element name="ckwzp" type="xs:double"/>
+      
+      <xs:element name="ckwzd" type="xs:double"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="UzytkownikSesjaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="chwilaOperacja" type="xs:long"/>
+      
+      <xs:element name="chwilaLogowania" type="xs:long"/>
+      
+      <xs:element name="typOperacji" type="xs:long"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element name="idSesji" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="daneKonfiguracyjne">
+    
+    <xs:sequence>
+      
+      <xs:element name="podsystem" type="xs:string"/>
+      
+      <xs:element name="klucz" type="xs:string"/>
+      
+      <xs:element name="wartosc" type="xs:string"/>
+      
+      <xs:element name="opis" type="xs:string"/>
+      
+      <xs:element name="modyfikowalny" type="xs:boolean"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ZdarzenieSystemoweTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="identyfikator" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzenia" type="xs:long"/>
+      
+      <xs:element name="typZdarzeniaSystemowego" type="xs:long"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="idKancelarii" type="xs:string"/>
+      
+      <xs:element name="nrKw" type="xs:string"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+      
+      <xs:element name="czasOperacji" type="xs:long"/>
+      
+      <xs:element name="numerIp" type="xs:string"/>
+      
+      <xs:element name="szczegoly" type="xs:string"/>
+      
+      <xs:element name="podsystem" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaWgladuDoKWTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="chwilaZdarzeniaOd" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzeniaDo" type="xs:long"/>
+      
+      <xs:element name="sygnatura" type="xs:string"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element name="grupaUzytkownikow" type="xs:string"/>
+      
+      <xs:element name="rodzajWgladu" type="xs:int"/>
+      
+      <xs:element name="statusWgladu" type="xs:int"/>
+      
+      <xs:element name="numerKW" type="xs:string"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="blokadaDostepuSaduTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="uzytkownik" type="tns:uzytkownikTo"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element name="dataUtworzenia" type="xs:dateTime"/>
+      
+      <xs:element name="dataModyfikacji" type="xs:dateTime"/>
+      
+      <xs:element name="dataPoczatkowa" type="xs:dateTime"/>
+      
+      <xs:element name="dataKoncowa" type="xs:dateTime"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="WgladDoKWTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="identyfikator" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzenia" type="xs:long"/>
+      
+      <xs:element name="sygnatura" type="xs:string"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element name="grupaUzytkownikow" type="xs:string"/>
+      
+      <xs:element name="rodzajWgladu" type="xs:int"/>
+      
+      <xs:element name="statusWgladu" type="xs:int"/>
+      
+      <xs:element name="numerKW" type="xs:string"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="identyfikatorKWTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="identyfikatorSadu" type="xs:string"/>
+      
+      <xs:element name="identyfikatorNieruchomosci" type="xs:string"/>
+      
+      <xs:element name="cyfraKontrolna" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="wniosekKryteriaTO">
+    
+    <xs:sequence>
+      
+      <xs:element name="liczbaWnioskow" type="xs:int"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="wnioski" nillable="true" type="tns:wniosekPoKryteriachTO"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="wniosekPoKryteriachTO">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="sygnatura" type="xs:string"/>
+      
+      <xs:element name="dokumentWyjsciowy" type="xs:string"/>
+      
+      <xs:element name="dataZlozenia" type="xs:dateTime"/>
+      
+      <xs:element name="dataRealizacji" type="xs:dateTime"/>
+      
+      <xs:element name="uzytkownik" type="xs:string"/>
+      
+      <xs:element name="statusWniosku" type="xs:string"/>
+      
+      <xs:element name="statusOplaty" type="xs:string"/>
+      
+      <xs:element name="kwota" type="xs:double"/>
+      
+      <xs:element name="ksiegaWieczysta" type="xs:string"/>
+      
+      <xs:element name="iloscWydrukow" type="xs:int"/>
+      
+      <xs:element name="dataWplaty" type="xs:dateTime"/>
+      
+      <xs:element name="daneWplacajacego" type="xs:string"/>
+      
+      <xs:element name="tryb" type="xs:string"/>
+      
+      <xs:element name="statusWnioskuId" type="xs:string"/>
+      
+      <xs:element name="dokumentWyjsciowyId" type="xs:string"/>
+      
+      <xs:element name="rodzajZadaniaId" type="xs:string"/>
+      
+      <xs:element name="formaDostarczenia" type="xs:string"/>
+      
+      <xs:element name="formaZlozenia" type="xs:string"/>
+      
+      <xs:element name="cyfraKontrolna" type="xs:double"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaWyszukiwaniaZdarzenTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="chwilaZdarzeniaOd" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzeniaDo" type="xs:long"/>
+      
+      <xs:element name="typZdarzeniaSystemowego" type="xs:int"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element name="grupaUzytkownikow" type="xs:string"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+      
+      <xs:element name="nrKw" type="xs:string"/>
+      
+      <xs:element name="numerIp" type="xs:string"/>
+      
+      <xs:element name="czasOperacji" type="xs:long"/>
+      
+      <xs:element name="podsystem" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="CzasomierzKryteriaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="typCzasomierza" type="tns:CzasomierzTypTo"/>
+      
+      <xs:element name="idObiektu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="zlecenieTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="statusZlecenia" type="tns:ZlecenieStatusTo"/>
+      
+      <xs:element minOccurs="0" name="faktura" type="tns:daneAdresoweFakturaTo"/>
+      
+      <xs:element minOccurs="0" name="rachunek" type="tns:daneAdresoweRachunekTo"/>
+      
+      <xs:element minOccurs="0" name="doreczenie" type="tns:daneAdresoweDoreczenieTo"/>
+      
+      <xs:element minOccurs="0" name="transakcjaPlatnosci" type="tns:transakcjaPlatnosciTo"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="wniosekRejestracyjny" nillable="true" type="tns:wniosekRejestracyjnyTo"/>
+      
+      <xs:element name="dataZlozenia" type="xs:dateTime"/>
+      
+      <xs:element name="email" type="xs:string"/>
+      
+      <xs:element name="kwota" type="xs:double"/>
+      
+      <xs:element name="waluta" type="xs:string"/>
+      
+      <xs:element name="statusOplaty" type="xs:string"/>
+      
+      <xs:element name="ostDataPlatnosci" type="xs:dateTime"/>
+      
+      <xs:element name="dostepZlec" type="xs:dateTime"/>
+      
+      <xs:element name="userGuid" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="daneAdresoweFakturaTo">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="tns:daneAdresoweTo">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="zlecenie" type="tns:zlecenieTo"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType abstract="true" name="daneAdresoweTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="nazwaFirmy" type="xs:string"/>
+      
+      <xs:element name="nip" type="xs:string"/>
+      
+      <xs:element name="nazwisko" type="xs:string"/>
+      
+      <xs:element name="nazwiskoDrugie" type="xs:string"/>
+      
+      <xs:element name="imie" type="xs:string"/>
+      
+      <xs:element name="imieDrugie" type="xs:string"/>
+      
+      <xs:element name="ulica" type="xs:string"/>
+      
+      <xs:element name="dom" type="xs:string"/>
+      
+      <xs:element name="lokal" type="xs:string"/>
+      
+      <xs:element name="miejscowosc" type="xs:string"/>
+      
+      <xs:element name="kod" type="xs:string"/>
+      
+      <xs:element name="poczta" type="xs:string"/>
+      
+      <xs:element name="kraj" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="daneAdresoweDoreczenieTo">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="tns:daneAdresoweTo">
+        
+        <xs:sequence/>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="daneAdresoweRachunekTo">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="tns:daneAdresoweTo">
+        
+        <xs:sequence/>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="transakcjaPlatnosciTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="idTransakcji" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      
+      <xs:element name="operator" type="xs:string"/>
+      
+      <xs:element name="kwota" type="xs:double"/>
+      
+      <xs:element name="waluta" type="xs:string"/>
+      
+      <xs:element name="czasUtworzenia" type="xs:dateTime"/>
+      
+      <xs:element name="czasZmiany" type="xs:dateTime"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="wniosekRejestracyjnyTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="typ" type="tns:WniosekRejestracyjnyTypTo"/>
+      
+      <xs:element name="kopie" type="xs:int"/>
+      
+      <xs:element name="wysOpl" type="xs:double"/>
+      
+      <xs:element name="oplSuma" type="xs:double"/>
+      
+      <xs:element minOccurs="0" name="waluta" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="dataZlozenia" type="xs:dateTime"/>
+      
+      <xs:element name="sygnaturaNkwci" type="xs:int"/>
+      
+      <xs:element minOccurs="0" name="dostepKoresp" type="xs:dateTime"/>
+      
+      <xs:element minOccurs="0" name="dostepCikw" type="xs:dateTime"/>
+      
+      <xs:element minOccurs="0" name="dostepWeryfikacja" type="xs:dateTime"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element name="nrKw" type="xs:int"/>
+      
+      <xs:element name="cyfraKontr" type="xs:double"/>
+      
+      <xs:element name="dzialy" type="xs:string"/>
+      
+      <xs:element name="dost" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrKolejny" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ZwrotnyRaportZZWOWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="ozwzlp" type="xs:int"/>
+      
+      <xs:element name="ozwzle" type="xs:int"/>
+      
+      <xs:element name="ozwzrp" type="xs:int"/>
+      
+      <xs:element name="ozwzre" type="xs:int"/>
+      
+      <xs:element name="ozupzlp" type="xs:int"/>
+      
+      <xs:element name="ozupzle" type="xs:int"/>
+      
+      <xs:element name="ozupzrp" type="xs:int"/>
+      
+      <xs:element name="ozupzre" type="xs:int"/>
+      
+      <xs:element name="wyzlp" type="xs:int"/>
+      
+      <xs:element name="wyzle" type="xs:int"/>
+      
+      <xs:element name="wyzrp" type="xs:int"/>
+      
+      <xs:element name="wyzrr" type="xs:int"/>
+      
+      <xs:element name="kwzzlp" type="xs:int"/>
+      
+      <xs:element name="kwzzle" type="xs:int"/>
+      
+      <xs:element name="kwzzrp" type="xs:int"/>
+      
+      <xs:element name="kwzzre" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="wniosekPodgladTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="formaZlozenia" type="xs:string"/>
+      
+      <xs:element name="formaDostarczenia" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaRaportZWISIR">
+    
+    <xs:sequence>
+      
+      <xs:element name="dataOD" type="xs:string"/>
+      
+      <xs:element name="dataDO" type="xs:string"/>
+      
+      <xs:element name="kodECI" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ParametrSystemowy">
+    
+    <xs:sequence>
+      
+      <xs:element name="kod" type="xs:string"/>
+      
+      <xs:element name="wartosc" type="xs:string"/>
+      
+      <xs:element name="opis" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaRaportZOPZWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="dataOD" type="xs:string"/>
+      
+      <xs:element name="dataDO" type="xs:string"/>
+      
+      <xs:element name="kodECI" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ZwrotnyRaportZWISIR">
+    
+    <xs:sequence>
+      
+      <xs:element name="woozwzw" type="xs:int"/>
+      
+      <xs:element name="woozwzup" type="xs:int"/>
+      
+      <xs:element name="woozwkwz" type="xs:int"/>
+      
+      <xs:element name="woozwkwn" type="xs:int"/>
+      
+      <xs:element name="woozupzup" type="xs:int"/>
+      
+      <xs:element name="woozupkwz" type="xs:int"/>
+      
+      <xs:element name="woozupkwn" type="xs:int"/>
+      
+      <xs:element name="wowwy" type="xs:int"/>
+      
+      <xs:element name="wowzup" type="xs:int"/>
+      
+      <xs:element name="wowkwz" type="xs:int"/>
+      
+      <xs:element name="wowkwn" type="xs:int"/>
+      
+      <xs:element name="kwzkwz" type="xs:int"/>
+      
+      <xs:element name="kwzkwist" type="xs:int"/>
+      
+      <xs:element name="kwzkwczyn" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="CaptchaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="pytanie" type="xs:string"/>
+      
+      <xs:element name="odpowiedz" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ZwrotnyRaportZWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="wneozwpozw" type="xs:int"/>
+      
+      <xs:element name="wnpozwpozw" type="xs:int"/>
+      
+      <xs:element name="wneozwdozw" type="xs:int"/>
+      
+      <xs:element name="wneozuppozup" type="xs:int"/>
+      
+      <xs:element name="wnpozuppozup" type="xs:int"/>
+      
+      <xs:element name="wneozupdozw" type="xs:int"/>
+      
+      <xs:element name="wneozupdozup" type="xs:int"/>
+      
+      <xs:element name="wneozupdwy" type="xs:int"/>
+      
+      <xs:element name="wnewypwy" type="xs:int"/>
+      
+      <xs:element name="wnpwypwy" type="xs:int"/>
+      
+      <xs:element name="wnewydwy" type="xs:int"/>
+      
+      <xs:element name="wnekwzpozw" type="xs:int"/>
+      
+      <xs:element name="wnekwzpwy" type="xs:int"/>
+      
+      <xs:element name="wnekwzpkwz" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpozw" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpozup" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpwy" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpkwz" type="xs:int"/>
+      
+      <xs:element name="wnekwzdkwz" type="xs:int"/>
+      
+      <xs:element name="wnpkwipozw" type="xs:int"/>
+      
+      <xs:element name="wnpkwipozup" type="xs:int"/>
+      
+      <xs:element name="wnpkwipwy" type="xs:int"/>
+      
+      <xs:element name="wnpkwipkwz" type="xs:int"/>
+      
+      <xs:element name="wnpkwczykwz" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaRaportZZWOWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="dataOD" type="xs:string"/>
+      
+      <xs:element name="dataDO" type="xs:string"/>
+      
+      <xs:element name="kodECI" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="duzaKsiegaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="identyfikatorKW" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="daneEksportuTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="zrzut" type="tns:zrzutTo"/>
+      
+      <xs:element name="skwId" type="xs:int"/>
+      
+      <xs:element name="sgmId" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="zrzutTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="dystrybutor" type="tns:dystrybutorTo"/>
+      
+      <xs:element minOccurs="0" name="uzytkownik" type="tns:uzytkownikTo"/>
+      
+      <xs:element name="dataWykonania" type="xs:dateTime"/>
+      
+      <xs:element name="dataOd" type="xs:dateTime"/>
+      
+      <xs:element name="dataDo" type="xs:dateTime"/>
+      
+      <xs:element name="iloscKsiag" type="xs:int"/>
+      
+      <xs:element name="log" type="xs:string"/>
+      
+      <xs:element name="pelny" type="xs:string"/>
+      
+      <xs:element name="link" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="dystrybutorTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="kod" type="xs:string"/>
+      
+      <xs:element name="nazwa" type="xs:string"/>
+      
+      <xs:element name="umowaOd" type="xs:dateTime"/>
+      
+      <xs:element name="umowaDo" type="xs:dateTime"/>
+      
+      <xs:element name="status" type="xs:string"/>
+      
+      <xs:element name="sieUl" type="xs:string"/>
+      
+      <xs:element name="sieDom" type="xs:string"/>
+      
+      <xs:element name="sieLokal" type="xs:string"/>
+      
+      <xs:element name="sieKod" type="xs:string"/>
+      
+      <xs:element name="sieMiejscowos" type="xs:string"/>
+      
+      <xs:element name="adrUl" type="xs:string"/>
+      
+      <xs:element name="adrDom" type="xs:string"/>
+      
+      <xs:element name="adrLokal" type="xs:string"/>
+      
+      <xs:element name="adrKod" type="xs:string"/>
+      
+      <xs:element name="adrMiejscowos" type="xs:string"/>
+      
+      <xs:element name="adrPoczta" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="dystrybutorZakresTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="dystrybutor" type="tns:dystrybutorTo"/>
+      
+      <xs:element name="skwId" type="xs:int"/>
+      
+      <xs:element name="sgmId" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="statusWnioskuTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      
+      <xs:element name="status" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="dokumentWyjsciowyTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="opis" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="dostepTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="rodzajDostepu" type="tns:rodzajDostepuTo"/>
+      
+      <xs:element minOccurs="0" name="uzytkownik" type="tns:uzytkownikTo"/>
+      
+      <xs:element minOccurs="0" name="wnioskujacy" type="tns:wnioskujacyTo"/>
+      
+      <xs:element name="dataDostepu" type="xs:dateTime"/>
+      
+      <xs:element name="numerKsiegi" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="rodzajDostepuTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      
+      <xs:element name="rodzajDostepu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="statusOplatyTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      
+      <xs:element name="statusOplaty" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="parametryTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="kod" type="xs:string"/>
+      
+      <xs:element name="wartosc" type="xs:string"/>
+      
+      <xs:element name="opis" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="licznikTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="kodEci" type="xs:string"/>
+      
+      <xs:element name="data" type="xs:dateTime"/>
+      
+      <xs:element name="licznik" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="dokumentTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="rodzaj" type="xs:string"/>
+      
+      <xs:element name="data" type="xs:dateTime"/>
+      
+      <xs:element name="userGuid" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="rodzajZadaniaTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      
+      <xs:element name="zadanie" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="idKsiegi">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="kwId" type="xs:int"/>
+      
+      <xs:element minOccurs="0" name="numerKw" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="dzial" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="cyfrKontr" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ParametrKonfiguracyjny">
+    
+    <xs:sequence>
+      
+      <xs:element name="kodParametru" type="xs:string"/>
+      
+      <xs:element name="wartoscParametru" type="xs:string"/>
+      
+      <xs:element name="opisParametru" type="xs:string"/>
+      
+      <xs:element name="kategoriaParametru" type="xs:string"/>
+      
+      <xs:element name="typParametru" type="xs:string"/>
+      
+      <xs:element name="dataModyfikacji" type="xs:string"/>
+      
+      <xs:element name="identyfikatorModyfikujacego" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="HistorycznyWynikWyszkiwaniaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="chwilaWyszukania" type="xs:long"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+      
+      <xs:element name="kryteriaWyszukania" type="tns:KryteriaWgladuDoKWTo"/>
+      
+      <xs:element name="identyfikatorKancelarii" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="ZwrotnyRaportZOPZWDOnline">
+    
+    <xs:sequence>
+      
+      <xs:element name="zwp" type="xs:int"/>
+      
+      <xs:element name="zwd" type="xs:int"/>
+      
+      <xs:element name="zupp" type="xs:int"/>
+      
+      <xs:element name="zupd" type="xs:int"/>
+      
+      <xs:element name="wjdp" type="xs:int"/>
+      
+      <xs:element name="wjdd" type="xs:int"/>
+      
+      <xs:element name="wddp" type="xs:int"/>
+      
+      <xs:element name="wddd" type="xs:int"/>
+      
+      <xs:element name="wtdp" type="xs:int"/>
+      
+      <xs:element name="wtdd" type="xs:int"/>
+      
+      <xs:element name="wcdp" type="xs:int"/>
+      
+      <xs:element name="wcdd" type="xs:int"/>
+      
+      <xs:element name="kwzp" type="xs:int"/>
+      
+      <xs:element name="kwzd" type="xs:int"/>
+      
+      <xs:element name="czwp" type="xs:double"/>
+      
+      <xs:element name="czwd" type="xs:double"/>
+      
+      <xs:element name="czupp" type="xs:double"/>
+      
+      <xs:element name="czupd" type="xs:double"/>
+      
+      <xs:element name="cwjdp" type="xs:double"/>
+      
+      <xs:element name="cwjdd" type="xs:double"/>
+      
+      <xs:element name="cwddp" type="xs:double"/>
+      
+      <xs:element name="cwddd" type="xs:double"/>
+      
+      <xs:element name="cwtdp" type="xs:double"/>
+      
+      <xs:element name="cwtdd" type="xs:double"/>
+      
+      <xs:element name="cwcdp" type="xs:double"/>
+      
+      <xs:element name="cwcdd" type="xs:double"/>
+      
+      <xs:element name="ckwzp" type="xs:double"/>
+      
+      <xs:element name="ckwzd" type="xs:double"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KryteriaRaportZOPZWDOnline">
+    
+    <xs:sequence>
+      
+      <xs:element name="dataOD" type="xs:string"/>
+      
+      <xs:element name="dataDO" type="xs:string"/>
+      
+      <xs:element name="kodECI" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="MapType">
+    
+    <xs:sequence>
+      
+      <xs:element ref="tns:map"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="WynikWeryfikacjiDokumentuTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="dataWydaniaDokumentu" type="xs:date"/>
+      
+      <xs:element name="wynikWeryfikacji" type="xs:string"/>
+      
+      <xs:element name="zmianaRub01" type="xs:boolean"/>
+      
+      <xs:element name="zmianaRub02" type="xs:boolean"/>
+      
+      <xs:element name="zmianaRub03" type="xs:boolean"/>
+      
+      <xs:element name="zmianaRub04" type="xs:boolean"/>
+      
+      <xs:element name="idDokumentu" type="xs:string"/>
+      
+      <xs:element name="idRaportu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="KonfiguracjaTeletransmisjaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="klucz" type="xs:string"/>
+      
+      <xs:element name="wartosc" type="xs:string"/>
+      
+      <xs:element name="systemTeletransm" type="xs:string"/>
+      
+      <xs:element name="opis" type="xs:string"/>
+      
+      <xs:element name="modyfikowalny" type="xs:boolean"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="logiTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="nazwaKiksa" type="xs:string"/>
+      
+      <xs:element name="timestamp" type="xs:dateTime"/>
+      
+      <xs:element name="tresc" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="uzytkownikToArray">
+    
+    <xs:sequence>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:uzytkownikTo"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:simpleType name="CzasomierzTypTo">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="CZASOMIERZ_OCZEKIWANIE_NA_POTWIERDZENIE_PLATNOSCI"/>
+      
+      <xs:enumeration value="CZASOMIERZ_DOSTEPNOSC_ZLECENIA_DO_MODYFIKACJI"/>
+      
+      <xs:enumeration value="CZASOMIERZ_DOSTEPNOSC_ZLECENIA"/>
+      
+      <xs:enumeration value="CZASOMIERZ_DOSTEPNOSC_POWIERDZENIA_ZLOZENIA_WNIOSKU"/>
+      
+      <xs:enumeration value="CZASOMIERZ_DOSTEPNOSC_DOKUMENTU_Z_CIKW"/>
+      
+      <xs:enumeration value="CZASOMIERZ_DOSTEPNOSC_DOKUMENTU_DO_WERYFIKACJI"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+
+  
+  <xs:simpleType name="ZlecenieStatusTo">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="U"/>
+      
+      <xs:enumeration value="Z"/>
+      
+      <xs:enumeration value="A"/>
+      
+      <xs:enumeration value="O"/>
+      
+      <xs:enumeration value="W"/>
+      
+      <xs:enumeration value="P"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+
+  
+  <xs:simpleType name="WniosekRejestracyjnyTypTo">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="ZW"/>
+      
+      <xs:enumeration value="ZU"/>
+      
+      <xs:enumeration value="ZZ"/>
+      
+      <xs:enumeration value="WW"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+
+  
+  <xs:simpleType name="KWStateTo">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="ACTIVE"/>
+      
+      <xs:enumeration value="NOT_EXIST"/>
+      
+      <xs:enumeration value="CLOSED"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+
+  
+  <xs:simpleType name="DocumentTypeTo">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="DUPLICATE"/>
+      
+      <xs:enumeration value="DUPLICATE_COMLETE"/>
+      
+      <xs:enumeration value="EXTRACT"/>
+      
+      <xs:enumeration value="CERTIFICATE"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+
+  
+  <xs:simpleType name="StatusCzasomierzaTo">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="URUCHOMIONY"/>
+      
+      <xs:enumeration value="ZATRZYMANY"/>
+      
+      <xs:enumeration value="NIE_ISTNIEJE"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+
+
+</xs:schema>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ms.gov.pl/ekw/channel/centralnainformacja/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ws.services.eukw.ms.gov.pl/EKWWnioski/" targetNamespace="http://ms.gov.pl/ekw/esb/cmd" version="1.0">
+
+  
+  <xs:complexType name="OpisKsiegiWieczystej">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="kwId" type="xs:int"/>
+      
+      <xs:element minOccurs="0" name="dataUjawnienia" type="xs:date"/>
+      
+      <xs:element minOccurs="0" name="dataZamkniecia" type="xs:date"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="numerKw" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="cyfraKontrolna" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="identyfikator" type="xs:int"/>
+      
+      <xs:element minOccurs="0" name="sadWlasciwy" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="blokadaSaduWlasciwego" type="xs:boolean"/>
+      
+      <xs:element minOccurs="0" name="duzaKsiega" type="xs:boolean"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+
+</xs:schema>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ms.gov.pl/ekw/common/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ws.services.eukw.ms.gov.pl/EKWWnioski/" targetNamespace="http://ms.gov.pl/ekw/common/" version="1.0">
+
+  
+  <xs:complexType name="BaseRequest">
+    
+    <xs:sequence>
+      
+      <xs:element name="envelope" type="tns:EnvelopeTyp"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="EnvelopeTyp">
+    
+    <xs:sequence>
+      
+      <xs:element name="systemWywolujacy" type="xs:string"/>
+      
+      <xs:element name="identyfikatorWywolania" type="xs:string"/>
+      
+      <xs:element name="caller" type="tns:CallerTyp"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="CallerTyp">
+    
+    <xs:sequence>
+      
+      <xs:element name="callerId" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="BaseResponse">
+    
+    <xs:sequence>
+      
+      <xs:element name="result" type="tns:Result"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="Result">
+    
+    <xs:sequence>
+      
+      <xs:element name="errorCode" type="xs:int"/>
+      
+      <xs:element name="errorMessage" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+  
+  <xs:complexType name="FaultType">
+    
+    <xs:sequence>
+      
+      <xs:element name="kod" type="xs:int"/>
+      
+      <xs:element name="komunikat" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+
+
+</xs:schema>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ms.gov.pl/ekw/channel/centralnainformacja/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://ws.services.eukw.ms.gov.pl/EKWWnioski/" xmlns:ns1="http://ms.gov.pl/ekw/common/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ms.gov.pl/ekw/channel/centralnainformacja/">
+  
+  <xs:import namespace="http://ms.gov.pl/ekw/common/"/>
+  
+  <xs:import namespace="http://ws.services.eukw.ms.gov.pl/EKWWnioski/"/>
+  
+  <xs:import namespace="http://www.w3.org/2005/05/xmlmime"/>
+  
+  <xs:element name="PobierzWydrukWnioskuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wydruk" type="tns:PobierzKsiegeResponseType"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="anulujWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="id" type="tns:anulujWniosekRequest"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="numerKsiegi">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="numerKsiegi" type="ns2:NumerKsiegiTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzCalkowitaLiczbeZdarzen">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWyszukiwaniaZdarzenTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzCalkowitaLiczbeZdarzenResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="liczbaZdarzen" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzCountWnioskow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="liczbaWnioskow" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzCountWnioskowWgKryteriow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosekKryteria" type="tns:wniosekKryteria"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzDaneDoRaportuPDF">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaRaportu" type="tns:KryteriaRaportPDF"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzDaneDoRaportuResponsePDF">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="raport" type="xs:base64Binary"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzHistorieWydrukuWnioskuRequest">
+    
+    <xs:complexType>
+      
+      <xs:complexContent>
+        
+        <xs:extension base="ns1:BaseRequest">
+          
+          <xs:sequence>
+            
+            <xs:element name="id" type="xs:string"/>
+          
+          </xs:sequence>
+        
+        </xs:extension>
+      
+      </xs:complexContent>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzHistorieWydrukuWnioskuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="historia" type="tns:wniosekHistoriaListTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzListeGrupUzytkownikow">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzListeGrupUzytkownikowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="grupa" nillable="true" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzListeUzytkownikow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element minOccurs="0" name="groupName" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzListeUzytkownikowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="uzytkownik" nillable="true" type="xs:string"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzListeWnioskowWgKryteriow">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosekKryteria" type="tns:wniosekKryteria"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzListeWnioskowWgKryteriowResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosekKryteriaTO" type="tns:wniosekKryteriaTO"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzOplaty">
+    
+    <xs:complexType>
+      
+      <xs:sequence/>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzOplatyResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="oplaty" nillable="true" type="tns:oplata"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="tns:pobierzWniosekRequest"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWniosekResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosek" type="tns:wniosekPodgladTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWszystkieZdarzenia">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWyszukiwaniaZdarzenTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWszystkieZdarzeniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="listaZdarzen" nillable="true" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukHistoriiWydrukuRequest">
+    
+    <xs:complexType>
+      
+      <xs:complexContent>
+        
+        <xs:extension base="ns1:BaseRequest">
+          
+          <xs:sequence>
+            
+            <xs:element name="id" type="xs:string"/>
+            
+            <xs:element name="userAD" type="tns:UserAD"/>
+          
+          </xs:sequence>
+        
+        </xs:extension>
+      
+      </xs:complexContent>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukPotwierdzeniaRequest">
+    
+    <xs:complexType>
+      
+      <xs:complexContent>
+        
+        <xs:extension base="ns1:BaseRequest">
+          
+          <xs:sequence>
+            
+            <xs:element name="id" type="xs:string"/>
+            
+            <xs:element name="userAD" type="tns:UserAD"/>
+          
+          </xs:sequence>
+        
+        </xs:extension>
+      
+      </xs:complexContent>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukPotwierdzeniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wydruk" type="tns:PobierzKsiegeResponseType"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wydruk" type="xs:base64Binary"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukWezwania">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wezwanie" type="tns:pobierzWydrukWezwaniaRequest"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukWezwaniaResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wydruk" type="xs:base64Binary"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukWniosku">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorWniosku" type="tns:pobierzWydrukWnioskuRequest"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukWykazu">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosek" type="tns:pobierzWydrukWykazuRequest"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWydrukWykazuResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wydruk" type="xs:base64Binary"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWykazRejestrZdarzenSystemowych">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="kryteriaWyszukiwania" type="tns:KryteriaWyszukiwaniaZdarzenTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWykazRejestrZdarzenSystemowychResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wykazPdf" type="xs:base64Binary"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWyszukanieKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="idZdarzeniaSystemowego" type="xs:long"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzWyszukanieKWResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="wyszukanieKW" nillable="true" type="ns2:NumerKsiegiTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzZdarzenieSystemowe">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="identyfikatorZdarzenia" type="xs:int"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="pobierzZdarzenieSystemoweResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="zdarzenieSystemoweResp" type="tns:ZdarzenieSystemoweTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="stanKW">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="stanKW" type="tns:StanKWTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="utworzWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosek" type="tns:wniosekTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="utworzWniosekResponse">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="response" type="tns:wniosekFrom"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:element name="zapiszWniosek">
+    
+    <xs:complexType>
+      
+      <xs:sequence>
+        
+        <xs:element name="wniosek" type="tns:wniosekTo"/>
+      
+      </xs:sequence>
+    
+    </xs:complexType>
+  
+  </xs:element>
+  
+  <xs:complexType name="PobierzCalkowitaIloscKwZaawansowaneRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="KryteriaWyszukiwaniaKw" type="tns:KryteriaWyszukiwaniaKwZaawansowaneRequestType"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWyszukiwaniaKwZaawansowaneRequestType">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="zamkniete" type="xs:boolean"/>
+      
+      <xs:element minOccurs="0" name="nieujawnione" type="xs:boolean"/>
+      
+      <xs:element default="AKTUALNE" name="typWyszukiwania" type="tns:KryteriaTypWyszukiwaniaType"/>
+      
+      <xs:element minOccurs="0" name="numerKsiegi" type="tns:KryteriaNumerKsiegi"/>
+      
+      <xs:element minOccurs="0" name="numerSprawy" type="tns:KryteriaNumerSprawy"/>
+      
+      <xs:element minOccurs="0" name="daneAdresowe" type="tns:KryteriaAdres"/>
+      
+      <xs:element minOccurs="0" name="oznaczeniaGeodezyjne" type="tns:KryteriaOznaczeniaGeodezyjne"/>
+      
+      <xs:element minOccurs="0" name="wlascicielOsobaFizyczna" type="tns:KryteriaWlascicielOsobaFizyczna"/>
+      
+      <xs:element minOccurs="0" name="wlascicielOsobaPrawna" type="tns:KryteriaWlascicielOsobaPrawna"/>
+      
+      <xs:element minOccurs="0" name="wlascicielSkarbPanstwa" type="tns:KryteriaWlascicielSkarbPanstwa"/>
+      
+      <xs:element minOccurs="0" name="wlascicielOsobaFizycznaDzial2" type="tns:KryteriaWlascicielOsobaFizycznaDzial2"/>
+      
+      <xs:element minOccurs="0" name="wlascicielOsobaPrawnaDzial2" type="tns:KryteriaWlascicielOsobaPrawnaDzial2"/>
+      
+      <xs:element minOccurs="0" name="wlascicielSkarbPanstwaDzial2" type="tns:KryteriaWlascicielSkarbPanstwaDzial2"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaNumerKsiegi">
+    
+    <xs:sequence>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element name="numerKW" type="xs:string"/>
+      
+      <xs:element name="cyfraKontrolna" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaNumerSprawy">
+    
+    <xs:sequence>
+      
+      <xs:element name="nrWniosku" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="numerZadania" type="xs:string"/>
+      
+      <xs:element name="rok" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaAdres">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="wojewodztwo" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="powiat" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="gmina" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="dzielnica" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="ulica" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrDomu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrLokalu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaOznaczeniaGeodezyjne">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="wojewodztwo" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="powiat" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="gmina" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="numerObrebu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nazwaObrebu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="identyfikatorDzialki" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="numerDzialki" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWlascicielOsobaFizyczna">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="pierwszyCzlonNazwiska" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="drugiCzlonNazwiska" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imiePierwsze" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imieDrugie" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imieOjca" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imieMatki" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="pesel" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWlascicielOsobaPrawna">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="nazwa" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="regon" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWlascicielSkarbPanstwa">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="nazwa" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="regon" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWlascicielOsobaFizycznaDzial2">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="pierwszyCzlonNazwiska" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="drugiCzlonNazwiska" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imiePierwsze" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imieDrugie" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imieOjca" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imieMatki" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="pesel" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWlascicielOsobaPrawnaDzial2">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="nazwa" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="regon" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWlascicielSkarbPanstwaDzial2">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="nazwa" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="regon" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaRaport">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="dataOD" type="xs:date"/>
+          
+          <xs:element name="dataDO" type="xs:date"/>
+          
+          <xs:element name="kodECI" type="xs:string"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaRaportPDF">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="tns:KryteriaRaport">
+        
+        <xs:sequence>
+          
+          <xs:element name="typ" type="tns:SprawozdawczoscTypEnum"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="PobierzCalkowitaIloscKwResponse">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element name="calkowitaIloscRekordow" type="xs:int"/>
+          
+          <xs:element name="iloscRekordow" type="xs:int"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="WyjatekWyszukiwaniaType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:FaultType">
+        
+        <xs:sequence/>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="WyszukajKwRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="kryteriaWyszukiwaniaKw" type="tns:KryteriaWyszukiwaniaKwRequestType"/>
+          
+          <xs:element name="nrStrony" type="xs:int"/>
+          
+          <xs:element name="rozmiarStrony" type="xs:int"/>
+          
+          <xs:element name="typSortowania" type="tns:RodzajSortowania"/>
+          
+          <xs:element name="powodWyszukiwania" type="xs:string"/>
+          
+          <xs:element minOccurs="0" name="uzytkownik" type="tns:Uzytkownik"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWyszukiwaniaKwRequestType">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="zamkniete" type="xs:boolean"/>
+      
+      <xs:element minOccurs="0" name="nieujawnione" type="xs:boolean"/>
+      
+      <xs:element default="AKTUALNE" name="typWyszukiwania" type="tns:KryteriaTypWyszukiwaniaType"/>
+      
+      <xs:element minOccurs="0" name="numerKsiegi" type="tns:KryteriaNumerKsiegi"/>
+      
+      <xs:element minOccurs="0" name="numerSprawy" type="tns:KryteriaNumerSprawy"/>
+      
+      <xs:element minOccurs="0" name="daneAdresowe" type="tns:KryteriaAdres"/>
+      
+      <xs:element minOccurs="0" name="oznaczeniaGeodezyjne" type="tns:KryteriaOznaczeniaGeodezyjne"/>
+      
+      <xs:element minOccurs="0" name="wlascicielOsobaFizyczna" type="tns:KryteriaWlascicielOsobaFizyczna"/>
+      
+      <xs:element minOccurs="0" name="wlascicielOsobaPrawna" type="tns:KryteriaWlascicielOsobaPrawna"/>
+      
+      <xs:element minOccurs="0" name="wlascicielSkarbPanstwa" type="tns:KryteriaWlascicielSkarbPanstwa"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="Uzytkownik">
+    
+    <xs:sequence>
+      
+      <xs:element name="typUzytkownika" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nazwa" type="xs:string"/>
+      
+      <xs:element name="id" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="imie" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nazwisko" type="xs:string"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="role" nillable="true" type="xs:string"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="adres" nillable="true" type="tns:Adres"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="Adres">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="wojewodztwo" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="powiat" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="gmina" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="dzielnica" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="ulica" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrDomu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrLokalu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="UzupelnijKwRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="tns:WyszukajKwRequest">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="wykazKw" type="tns:WykazKw"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="WykazKw">
+    
+    <xs:sequence>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="rekordWykazu" nillable="true" type="tns:RekordWykazu"/>
+      
+      <xs:element name="totalSize" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="RekordWykazu">
+    
+    <xs:sequence>
+      
+      <xs:element name="kwId" type="xs:int"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrKw" type="xs:int"/>
+      
+      <xs:element minOccurs="0" name="cyfraKontrolna" type="xs:int"/>
+      
+      <xs:element minOccurs="0" name="dataZapisu" type="xs:date"/>
+      
+      <xs:element minOccurs="0" name="dataZamkniecia" type="xs:date"/>
+      
+      <xs:element name="typKsiegi" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nazwaSadu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWydzialuWlasciwosci" type="xs:string"/>
+      
+      <xs:element name="miejscowoscWydzialu" type="xs:string"/>
+      
+      <xs:element name="numerWydzialu" type="xs:string"/>
+      
+      <xs:element name="nazwaWydzialu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="dataUjawnienia" type="xs:date"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="wlasciciele" nillable="true" type="tns:RekordWykazuWlasciciel"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="polozenia" nillable="true" type="tns:RekordWykazuPolozenie"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="RekordWykazuWlasciciel">
+    
+    <xs:sequence>
+      
+      <xs:element name="nazwa" type="xs:string"/>
+      
+      <xs:element name="numerIdentyfikacyjny" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="RekordWykazuPolozenie">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="wojewodztwo" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="powiat" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="gmina" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="miejscowosc" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="dzielnica" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="ulica" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrDomu" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="nrLokalu" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="UserAD">
+    
+    <xs:sequence>
+      
+      <xs:element name="adUser" type="xs:string"/>
+      
+      <xs:element name="kodEci" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="PobierzKsiegeResponseType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="dokumentKw" type="tns:DokumentKw"/>
+          
+          <xs:element name="sygnatura" type="tns:sygnaturaTo"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="DokumentKw">
+    
+    <xs:sequence>
+      
+      <xs:element name="kwid" type="xs:int"/>
+      
+      <xs:element name="typDokumentu" type="tns:TypDokumentu"/>
+      
+      <xs:element name="dokument" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="sygnaturaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="kodECI" type="xs:string"/>
+      
+      <xs:element name="dzien" type="xs:string"/>
+      
+      <xs:element name="miesiac" type="xs:string"/>
+      
+      <xs:element name="nr" type="xs:string"/>
+      
+      <xs:element name="rok" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="pobierzWydrukWezwaniaRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="idWniosku" type="xs:string"/>
+          
+          <xs:element name="userAD" type="tns:UserAD"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekHistoriaListTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="wniosek" type="tns:wniosekTo"/>
+      
+      <xs:element name="ilosc" type="xs:int"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="wydruki" nillable="true" type="tns:wniosekHistoriaTo"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekTo">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element name="id" type="xs:long"/>
+          
+          <xs:element minOccurs="0" name="statusWniosku" type="ns2:slownikProstyTo"/>
+          
+          <xs:element minOccurs="0" name="rodzajZadania" type="ns2:slownikProstyTo"/>
+          
+          <xs:element minOccurs="0" name="dokumentWyjsciowy" type="ns2:slownikProstyTo"/>
+          
+          <xs:element minOccurs="0" name="wnioskujacy" type="ns2:wnioskujacyTo"/>
+          
+          <xs:element minOccurs="0" name="uzytkownik" type="ns2:uzytkownikTo"/>
+          
+          <xs:element minOccurs="0" name="statusOplaty" type="ns2:slownikProstyTo"/>
+          
+          <xs:element minOccurs="0" name="numerKsiegi" type="ns2:NumerKsiegiTo"/>
+          
+          <xs:element minOccurs="0" name="formaZlozenia" type="ns2:slownikProstyTo"/>
+          
+          <xs:element minOccurs="0" name="formaDostarczenia" type="ns2:slownikProstyTo"/>
+          
+          <xs:element name="przyczynaRealizacjiOp" type="ns2:slownikProstyTo"/>
+          
+          <xs:element name="dataZlozenia" type="xs:dateTime"/>
+          
+          <xs:element name="dataRealizacj" type="xs:dateTime"/>
+          
+          <xs:element name="dataWyslania" type="xs:dateTime"/>
+          
+          <xs:element name="dataZlozeniai" type="xs:dateTime"/>
+          
+          <xs:element name="dataWplaty" type="xs:dateTime"/>
+          
+          <xs:element name="oplata" type="xs:double"/>
+          
+          <xs:element name="iloscWydrukow" type="xs:int"/>
+          
+          <xs:element name="nrKolejny" type="xs:int"/>
+          
+          <xs:element name="powodOdmowy" type="xs:string"/>
+          
+          <xs:element name="daneWplacajacego" type="xs:string"/>
+          
+          <xs:element name="kodWydzialu" type="xs:string"/>
+          
+          <xs:element name="sygnatura" type="xs:string"/>
+          
+          <xs:element name="nrDzialu" type="xs:string"/>
+          
+          <xs:element name="powodAnulacji" type="xs:string"/>
+          
+          <xs:element name="dataPlanWydania" type="xs:dateTime"/>
+          
+          <xs:element name="pars" type="xs:string"/>
+          
+          <xs:element name="dzialy" type="xs:string"/>
+          
+          <xs:element name="tryb" type="xs:string"/>
+          
+          <xs:element name="adUser" type="xs:string"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekHistoriaTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="uzytkownik" type="ns2:uzytkownikTo"/>
+      
+      <xs:element minOccurs="0" name="dokumentWyjsciowy" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="dataWyk" type="xs:dateTime"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="WyszukajKwZaawansowaneRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="kryteriaWyszukiwaniaKw" type="tns:KryteriaWyszukiwaniaKwZaawansowaneRequestType"/>
+          
+          <xs:element name="nrStrony" type="xs:int"/>
+          
+          <xs:element name="rozmiarStrony" type="xs:int"/>
+          
+          <xs:element name="typSortowania" type="tns:RodzajSortowania"/>
+          
+          <xs:element name="powodWyszukiwania" type="xs:string"/>
+          
+          <xs:element minOccurs="0" name="uzytkownik" type="tns:Uzytkownik"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="UzupelnijKwZaawansowaneRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="tns:WyszukajKwZaawansowaneRequest">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="wykazKw" type="tns:WykazKw"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="WyszukajKwResponse">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="wykazKw" type="tns:WykazKw"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="ZdarzenieSystemoweTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="identyfikator" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzenia" type="xs:long"/>
+      
+      <xs:element name="typZdarzeniaSystemowego" type="xs:long"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="kodWKW" type="xs:string"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nrKw" nillable="true" type="ns2:NumerKsiegiTo"/>
+      
+      <xs:element name="czasOperacji" type="xs:long"/>
+      
+      <xs:element name="numerIp" type="xs:string"/>
+      
+      <xs:element name="szczegoly" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekKryteria">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="szybkiDostep" type="xs:string"/>
+          
+          <xs:element name="dataOd" type="xs:dateTime"/>
+          
+          <xs:element name="dataDo" type="xs:dateTime"/>
+          
+          <xs:element name="eci" type="xs:string"/>
+          
+          <xs:element name="statusWniosku" type="xs:string"/>
+          
+          <xs:element name="statusOplaty" type="xs:string"/>
+          
+          <xs:element name="czyOplacono" type="xs:string"/>
+          
+          <xs:element name="rodzajDokumentu" type="xs:string"/>
+          
+          <xs:element name="tryb" type="xs:string"/>
+          
+          <xs:element name="operator" type="xs:int"/>
+          
+          <xs:element name="eci_lok" type="xs:string"/>
+          
+          <xs:element name="sygnaturaKod" type="xs:string"/>
+          
+          <xs:element name="sygnaturaData" type="xs:dateTime"/>
+          
+          <xs:element name="sygnaturaNrk" type="xs:string"/>
+          
+          <xs:element name="anulowana" type="xs:string"/>
+          
+          <xs:element name="kwKodWydzialu" type="xs:string"/>
+          
+          <xs:element name="kwNrKw" type="xs:string"/>
+          
+          <xs:element name="kwCyfraKontrolna" type="xs:string"/>
+          
+          <xs:element name="imie1" type="xs:string"/>
+          
+          <xs:element name="imie2" type="xs:string"/>
+          
+          <xs:element name="nazwisko1" type="xs:string"/>
+          
+          <xs:element name="nazwisko2" type="xs:string"/>
+          
+          <xs:element name="formaZlozenia" type="xs:string"/>
+          
+          <xs:element name="formaDostarczenia" type="xs:string"/>
+          
+          <xs:element name="centrala" type="xs:string"/>
+          
+          <xs:element name="rozmiarStrony" type="xs:short"/>
+          
+          <xs:element name="ostatecznaDataZlozenia" type="xs:dateTime"/>
+          
+          <xs:element name="ostId" type="xs:int"/>
+          
+          <xs:element name="wnioskujacy" type="xs:string"/>
+          
+          <xs:element name="ileWnioskow" type="xs:int"/>
+          
+          <xs:element name="pierwszyWniosek" type="xs:int"/>
+          
+          <xs:element name="rekordOd" type="xs:long"/>
+          
+          <xs:element name="rekordDo" type="xs:long"/>
+          
+          <xs:element name="isCount" type="xs:boolean"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="PobierzWykazKsiegiWieczysteResponse">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="wykazPdf" type="xs:base64Binary"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="UzupelnijKwResponse">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element minOccurs="0" name="wykazKw" type="tns:WykazKw"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="AktualizujZdarzenieSystemoweRequestType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="zdarzenieSystemowe" type="tns:ZdarzenieSystemoweTo"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="AktualizujZdarzenieSystemoweResponseType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence/>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="UtworzZdarzenieSystemoweRequestType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="zdarzenieSystemowe" type="tns:ZdarzenieSystemoweTo"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="UtworzZdarzenieSystemoweResponseType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element name="idZdarzeniaSystemowego" type="xs:long"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="PobierzCalkowitaIloscKwRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="KryteriaWyszukiwaniaKw" type="tns:KryteriaWyszukiwaniaKwRequestType"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekFrom">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element name="id" type="xs:long"/>
+          
+          <xs:element name="sygnatura" type="tns:sygnaturaTo"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWyszukiwaniaZdarzenTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="chwilaZdarzeniaOd" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzeniaDo" type="xs:long"/>
+      
+      <xs:element name="typZdarzeniaSystemowego" type="xs:long"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element name="grupaUzytkownikow" type="xs:string"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+      
+      <xs:element name="nrKw" type="xs:string"/>
+      
+      <xs:element name="numerIp" type="xs:string"/>
+      
+      <xs:element name="czasOperacji" type="xs:long"/>
+      
+      <xs:element name="podsystem" type="xs:string"/>
+      
+      <xs:element name="rekordOd" type="xs:long"/>
+      
+      <xs:element name="rekordDo" type="xs:long"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="pobierzWniosekRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="identyfikatorWniosku" type="xs:string"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekPodgladTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element minOccurs="0" name="statusWniosku" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="rodzajZadania" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="dokumentWyjsciowy" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="wnioskujacy" type="ns2:wnioskujacyTo"/>
+      
+      <xs:element minOccurs="0" name="uzytkownik" type="ns2:uzytkownikTo"/>
+      
+      <xs:element minOccurs="0" name="statusOplaty" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="numerKsiegi" type="ns2:NumerKsiegiTo"/>
+      
+      <xs:element minOccurs="0" name="formaZlozenia" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="formaDostarczenia" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="przyczynaRealizacjiOp" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="dataZlozenia" type="xs:dateTime"/>
+      
+      <xs:element name="dataRealizacj" type="xs:dateTime"/>
+      
+      <xs:element name="dataWyslania" type="xs:dateTime"/>
+      
+      <xs:element name="dataZlozeniai" type="xs:dateTime"/>
+      
+      <xs:element name="dataWplaty" type="xs:dateTime"/>
+      
+      <xs:element name="oplata" type="xs:double"/>
+      
+      <xs:element name="iloscWydrukow" type="xs:int"/>
+      
+      <xs:element name="nrKolejny" type="xs:int"/>
+      
+      <xs:element name="powodOdmowy" type="xs:string"/>
+      
+      <xs:element name="daneWplacajacego" type="xs:string"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element name="nrDzialu" type="xs:string"/>
+      
+      <xs:element name="powodAnulacji" type="xs:string"/>
+      
+      <xs:element name="dataPlanWydania" type="xs:dateTime"/>
+      
+      <xs:element name="pars" type="xs:string"/>
+      
+      <xs:element name="dzialy" type="xs:string"/>
+      
+      <xs:element name="tryb" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekKryteriaTO">
+    
+    <xs:sequence>
+      
+      <xs:element name="liczbaWnioskow" type="xs:int"/>
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="wnioski" nillable="true" type="tns:wniosekPoKryteriachTO"/>
+      
+      <xs:element name="rekordOd" type="xs:long"/>
+      
+      <xs:element name="rekordDo" type="xs:long"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="wniosekPoKryteriachTO">
+    
+    <xs:sequence>
+      
+      <xs:element name="id" type="xs:long"/>
+      
+      <xs:element name="sygnatura" type="xs:string"/>
+      
+      <xs:element name="dokumentWyjsciowy" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="dataZlozenia" type="xs:dateTime"/>
+      
+      <xs:element name="dataRealizacji" type="xs:dateTime"/>
+      
+      <xs:element name="uzytkownik" type="xs:string"/>
+      
+      <xs:element name="statusWniosku" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="statusOplaty" type="xs:string"/>
+      
+      <xs:element name="kwota" type="xs:double"/>
+      
+      <xs:element name="ksiegaWieczysta" type="xs:string"/>
+      
+      <xs:element name="iloscWydrukow" type="xs:int"/>
+      
+      <xs:element name="dataWplaty" type="xs:dateTime"/>
+      
+      <xs:element name="daneWplacajacego" type="xs:string"/>
+      
+      <xs:element name="tryb" type="xs:string"/>
+      
+      <xs:element name="rodzajZadania" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="formaDostarczenia" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="formaZlozenia" type="ns2:slownikProstyTo"/>
+      
+      <xs:element name="cyfraKontrolna" type="xs:double"/>
+      
+      <xs:element name="kodWydzialu" type="xs:string"/>
+      
+      <xs:element name="iloscWydrukowHistorycznych" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="pobierzWydrukWykazuRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="wniosekKryteria" type="tns:wniosekKryteria"/>
+          
+          <xs:element name="userAD" type="tns:UserAD"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="pobierzWydrukWnioskuRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="identyfikatorWniosku" type="xs:string"/>
+          
+          <xs:element name="adUser" type="tns:UserAD"/>
+          
+          <xs:element name="wydrukStronyAdresowej" type="xs:boolean"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="WyjatekPobraniaType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:FaultType">
+        
+        <xs:sequence/>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="StanKWTo">
+    
+    <xs:sequence>
+      
+      <xs:element minOccurs="0" name="typ" type="ns2:slownikProstyTo"/>
+      
+      <xs:element minOccurs="0" name="wzmianki" type="xs:boolean"/>
+      
+      <xs:element minOccurs="0" name="ujawniona" type="xs:boolean"/>
+      
+      <xs:element minOccurs="0" name="zamknieta" type="xs:boolean"/>
+      
+      <xs:element minOccurs="0" name="wielkoscOdpisuZwyklego" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="wielkoscOdpisuZupelnego" type="xs:string"/>
+      
+      <xs:element minOccurs="0" name="odpisykwwlkTo" type="ns2:odpisykwwlkTo"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="anulujWniosekRequest">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseResponse">
+        
+        <xs:sequence>
+          
+          <xs:element name="id" type="xs:string"/>
+          
+          <xs:element name="status" type="xs:string"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="PobierzKsiegeRequestType">
+    
+    <xs:complexContent>
+      
+      <xs:extension base="ns1:BaseRequest">
+        
+        <xs:sequence>
+          
+          <xs:element name="kwId" type="xs:int"/>
+          
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="dzialy" nillable="true" type="tns:RodzajDzialuKw"/>
+          
+          <xs:element name="typZadania" type="tns:TypZadania"/>
+          
+          <xs:element name="kodEci" type="xs:string"/>
+          
+          <xs:element minOccurs="0" name="ujawniona" type="xs:boolean"/>
+          
+          <xs:element minOccurs="0" name="zamknieta" type="xs:boolean"/>
+        
+        </xs:sequence>
+      
+      </xs:extension>
+    
+    </xs:complexContent>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="ZwrotnyRaportZOPZWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="zwp" type="xs:int"/>
+      
+      <xs:element name="zwd" type="xs:int"/>
+      
+      <xs:element name="zupp" type="xs:int"/>
+      
+      <xs:element name="zupd" type="xs:int"/>
+      
+      <xs:element name="wjdp" type="xs:int"/>
+      
+      <xs:element name="wjdd" type="xs:int"/>
+      
+      <xs:element name="wddp" type="xs:int"/>
+      
+      <xs:element name="wddd" type="xs:int"/>
+      
+      <xs:element name="wtdp" type="xs:int"/>
+      
+      <xs:element name="wtdd" type="xs:int"/>
+      
+      <xs:element name="wcdp" type="xs:int"/>
+      
+      <xs:element name="wcdd" type="xs:int"/>
+      
+      <xs:element name="kwzp" type="xs:int"/>
+      
+      <xs:element name="kwzd" type="xs:int"/>
+      
+      <xs:element name="czwp" type="xs:double"/>
+      
+      <xs:element name="czwd" type="xs:double"/>
+      
+      <xs:element name="czupp" type="xs:double"/>
+      
+      <xs:element name="czupd" type="xs:double"/>
+      
+      <xs:element name="cwjdp" type="xs:double"/>
+      
+      <xs:element name="cwjdd" type="xs:double"/>
+      
+      <xs:element name="cwddp" type="xs:double"/>
+      
+      <xs:element name="cwddd" type="xs:double"/>
+      
+      <xs:element name="cwtdp" type="xs:double"/>
+      
+      <xs:element name="cwtdd" type="xs:double"/>
+      
+      <xs:element name="cwcdp" type="xs:double"/>
+      
+      <xs:element name="cwcdd" type="xs:double"/>
+      
+      <xs:element name="ckwzp" type="xs:double"/>
+      
+      <xs:element name="ckwzd" type="xs:double"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="KryteriaWgladuDoKWTo">
+    
+    <xs:sequence>
+      
+      <xs:element name="chwilaZdarzeniaOd" type="xs:long"/>
+      
+      <xs:element name="chwilaZdarzeniaDo" type="xs:long"/>
+      
+      <xs:element name="sygnatura" type="xs:string"/>
+      
+      <xs:element name="idUzytkownika" type="xs:string"/>
+      
+      <xs:element name="grupaUzytkownikow" type="xs:string"/>
+      
+      <xs:element name="rodzajWgladu" type="xs:int"/>
+      
+      <xs:element name="statusWgladu" type="xs:int"/>
+      
+      <xs:element name="numerKW" type="xs:string"/>
+      
+      <xs:element name="numerSprawy" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="ZwrotnyRaportZZWOWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="ozwzlp" type="xs:int"/>
+      
+      <xs:element name="ozwzle" type="xs:int"/>
+      
+      <xs:element name="ozwzrp" type="xs:int"/>
+      
+      <xs:element name="ozwzre" type="xs:int"/>
+      
+      <xs:element name="ozupzlp" type="xs:int"/>
+      
+      <xs:element name="ozupzle" type="xs:int"/>
+      
+      <xs:element name="ozupzrp" type="xs:int"/>
+      
+      <xs:element name="ozupzre" type="xs:int"/>
+      
+      <xs:element name="wyzlp" type="xs:int"/>
+      
+      <xs:element name="wyzle" type="xs:int"/>
+      
+      <xs:element name="wyzrp" type="xs:int"/>
+      
+      <xs:element name="wyzrr" type="xs:int"/>
+      
+      <xs:element name="kwzzlp" type="xs:int"/>
+      
+      <xs:element name="kwzzle" type="xs:int"/>
+      
+      <xs:element name="kwzzrp" type="xs:int"/>
+      
+      <xs:element name="kwzzre" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="ZwrotnyRaportZWISIR">
+    
+    <xs:sequence>
+      
+      <xs:element name="woozwzw" type="xs:int"/>
+      
+      <xs:element name="woozwzup" type="xs:int"/>
+      
+      <xs:element name="woozwkwz" type="xs:int"/>
+      
+      <xs:element name="woozwkwn" type="xs:int"/>
+      
+      <xs:element name="woozupzup" type="xs:int"/>
+      
+      <xs:element name="woozupkwz" type="xs:int"/>
+      
+      <xs:element name="woozupkwn" type="xs:int"/>
+      
+      <xs:element name="wowwy" type="xs:int"/>
+      
+      <xs:element name="wowzup" type="xs:int"/>
+      
+      <xs:element name="wowkwz" type="xs:int"/>
+      
+      <xs:element name="wowkwn" type="xs:int"/>
+      
+      <xs:element name="kwzkwz" type="xs:int"/>
+      
+      <xs:element name="kwzkwist" type="xs:int"/>
+      
+      <xs:element name="kwzkwczyn" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="ZwrotnyRaportZWD">
+    
+    <xs:sequence>
+      
+      <xs:element name="wneozwpozw" type="xs:int"/>
+      
+      <xs:element name="wnpozwpozw" type="xs:int"/>
+      
+      <xs:element name="wneozwdozw" type="xs:int"/>
+      
+      <xs:element name="wneozuppozup" type="xs:int"/>
+      
+      <xs:element name="wnpozuppozup" type="xs:int"/>
+      
+      <xs:element name="wneozupdozw" type="xs:int"/>
+      
+      <xs:element name="wneozupdozup" type="xs:int"/>
+      
+      <xs:element name="wneozupdwy" type="xs:int"/>
+      
+      <xs:element name="wnewypwy" type="xs:int"/>
+      
+      <xs:element name="wnpwypwy" type="xs:int"/>
+      
+      <xs:element name="wnewydwy" type="xs:int"/>
+      
+      <xs:element name="wnekwzpozw" type="xs:int"/>
+      
+      <xs:element name="wnekwzpwy" type="xs:int"/>
+      
+      <xs:element name="wnekwzpkwz" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpozw" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpozup" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpwy" type="xs:int"/>
+      
+      <xs:element name="wnpkwzpkwz" type="xs:int"/>
+      
+      <xs:element name="wnekwzdkwz" type="xs:int"/>
+      
+      <xs:element name="wnpkwipozw" type="xs:int"/>
+      
+      <xs:element name="wnpkwipozup" type="xs:int"/>
+      
+      <xs:element name="wnpkwipwy" type="xs:int"/>
+      
+      <xs:element name="wnpkwipkwz" type="xs:int"/>
+      
+      <xs:element name="wnpkwczykwz" type="xs:int"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="ZwrotnyRaportZOPZWDOnline">
+    
+    <xs:sequence>
+      
+      <xs:element name="zwp" type="xs:int"/>
+      
+      <xs:element name="zwd" type="xs:int"/>
+      
+      <xs:element name="zupp" type="xs:int"/>
+      
+      <xs:element name="zupd" type="xs:int"/>
+      
+      <xs:element name="wjdp" type="xs:int"/>
+      
+      <xs:element name="wjdd" type="xs:int"/>
+      
+      <xs:element name="wddp" type="xs:int"/>
+      
+      <xs:element name="wddd" type="xs:int"/>
+      
+      <xs:element name="wtdp" type="xs:int"/>
+      
+      <xs:element name="wtdd" type="xs:int"/>
+      
+      <xs:element name="wcdp" type="xs:int"/>
+      
+      <xs:element name="wcdd" type="xs:int"/>
+      
+      <xs:element name="kwzp" type="xs:int"/>
+      
+      <xs:element name="kwzd" type="xs:int"/>
+      
+      <xs:element name="czwp" type="xs:double"/>
+      
+      <xs:element name="czwd" type="xs:double"/>
+      
+      <xs:element name="czupp" type="xs:double"/>
+      
+      <xs:element name="czupd" type="xs:double"/>
+      
+      <xs:element name="cwjdp" type="xs:double"/>
+      
+      <xs:element name="cwjdd" type="xs:double"/>
+      
+      <xs:element name="cwddp" type="xs:double"/>
+      
+      <xs:element name="cwddd" type="xs:double"/>
+      
+      <xs:element name="cwtdp" type="xs:double"/>
+      
+      <xs:element name="cwtdd" type="xs:double"/>
+      
+      <xs:element name="cwcdp" type="xs:double"/>
+      
+      <xs:element name="cwcdd" type="xs:double"/>
+      
+      <xs:element name="ckwzp" type="xs:double"/>
+      
+      <xs:element name="ckwzd" type="xs:double"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:complexType name="oplata">
+    
+    <xs:sequence>
+      
+      <xs:element name="typOplaty" type="tns:OplataTypEnum"/>
+      
+      <xs:element name="wartosc" type="xs:string"/>
+    
+    </xs:sequence>
+  
+  </xs:complexType>
+  
+  <xs:simpleType name="KryteriaTypWyszukiwaniaType">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="AKTUALNE"/>
+      
+      <xs:enumeration value="HISTORYCZNE"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:simpleType name="SprawozdawczoscTypEnum">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="ZZWOWD"/>
+      
+      <xs:enumeration value="ZWISIR"/>
+      
+      <xs:enumeration value="ZOPZWDONLINE"/>
+      
+      <xs:enumeration value="ZWD"/>
+      
+      <xs:enumeration value="ZOPZWD"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:simpleType name="RodzajSortowania">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="numeracja_ksiag_rosnaco"/>
+      
+      <xs:enumeration value="typ_ksiegi"/>
+      
+      <xs:enumeration value="wydzial"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:simpleType name="TypDokumentu">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="XML"/>
+      
+      <xs:enumeration value="PDF"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:simpleType name="RodzajDzialuKw">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="WSZYSTKIE"/>
+      
+      <xs:enumeration value="OKLADKA"/>
+      
+      <xs:enumeration value="DIO"/>
+      
+      <xs:enumeration value="DIS"/>
+      
+      <xs:enumeration value="DII"/>
+      
+      <xs:enumeration value="DIII"/>
+      
+      <xs:enumeration value="DIV"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:simpleType name="TypZadania">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="WYDRUK_ZWYKLY_WERSJA_STARSZA"/>
+      
+      <xs:enumeration value="WYDRUK_ZWYKLY"/>
+      
+      <xs:enumeration value="WYDRUK_ZUPELNY"/>
+      
+      <xs:enumeration value="WNIOS_O_WYDANIE_ODPISU_ZWYKLEGO"/>
+      
+      <xs:enumeration value="WNIOS_O_WYDANIE_ODPISU_ZUPELNEGO"/>
+      
+      <xs:enumeration value="WNIOS_O_WYDANIE_ODPISU_ZWYKLEGO_WERSJA_STARSZA"/>
+      
+      <xs:enumeration value="WYDRUK_WYCIAGU"/>
+      
+      <xs:enumeration value="WYDRUK_WYCIAGU_WERSJA_DOTYCHCZASOWA"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:simpleType name="OplataTypEnum">
+    
+    <xs:restriction base="xs:string">
+      
+      <xs:enumeration value="COU"/>
+      
+      <xs:enumeration value="COUE"/>
+      
+      <xs:enumeration value="COW"/>
+      
+      <xs:enumeration value="COWE"/>
+      
+      <xs:enumeration value="CW1"/>
+      
+      <xs:enumeration value="CW1E"/>
+      
+      <xs:enumeration value="CW2"/>
+      
+      <xs:enumeration value="CW2E"/>
+      
+      <xs:enumeration value="CW3"/>
+      
+      <xs:enumeration value="CW3E"/>
+      
+      <xs:enumeration value="CW4"/>
+      
+      <xs:enumeration value="CW4E"/>
+      
+      <xs:enumeration value="CZK"/>
+      
+      <xs:enumeration value="CZKE"/>
+    
+    </xs:restriction>
+  
+  </xs:simpleType>
+  
+  <xs:element name="WyjatekWyszukiwania" nillable="true" type="tns:WyjatekWyszukiwaniaType"/>
+  
+  <xs:element name="WyjatekPobrania" nillable="true" type="tns:WyjatekPobraniaType"/>
+  
+  <xs:element name="PobierzCalkowitaIloscKwZaawansowaneObjectRequest" nillable="true" type="tns:PobierzCalkowitaIloscKwZaawansowaneRequest"/>
+  
+  <xs:element name="PobierzCalkowitaIloscKwObjectResponse" nillable="true" type="tns:PobierzCalkowitaIloscKwResponse"/>
+  
+  <xs:element name="WyszukajKwForHistoricalSaveObjectRequest" nillable="true" type="tns:WyszukajKwRequest"/>
+  
+  <xs:element name="WyszukajKwZaawansowaneObjectRequest" nillable="true" type="tns:WyszukajKwZaawansowaneRequest"/>
+  
+  <xs:element name="WyszukajKwObjectResponse" nillable="true" type="tns:WyszukajKwResponse"/>
+  
+  <xs:element name="WyszukajKwXmlRequest" nillable="true" type="tns:KryteriaNumerKsiegi"/>
+  
+  <xs:element name="WyszukajKwXmlResponse" nillable="true" type="tns:DokumentKw"/>
+  
+  <xs:element name="PobierzWykazKsiegiWieczysteRequest" nillable="true" type="tns:WyszukajKwRequest"/>
+  
+  <xs:element name="PobierzWykazKsiegiWieczysteResponse" nillable="true" type="tns:PobierzWykazKsiegiWieczysteResponse"/>
+  
+  <xs:element name="UzupelnijKwZaawansowaneObjectRequest" nillable="true" type="tns:UzupelnijKwZaawansowaneRequest"/>
+  
+  <xs:element name="UzupelnijKwObjectResponse" nillable="true" type="tns:UzupelnijKwResponse"/>
+  
+  <xs:element name="AktualizujZdarzenieSystemoweRequest" nillable="true" type="tns:AktualizujZdarzenieSystemoweRequestType"/>
+  
+  <xs:element name="AktualizujZdarzenieSystemoweResponse" nillable="true" type="tns:AktualizujZdarzenieSystemoweResponseType"/>
+  
+  <xs:element name="UtworzZdarzenieSystemoweRequest" nillable="true" type="tns:UtworzZdarzenieSystemoweRequestType"/>
+  
+  <xs:element name="UtworzZdarzenieSystemoweResponse" nillable="true" type="tns:UtworzZdarzenieSystemoweResponseType"/>
+  
+  <xs:element name="PobierzCalkowitaIloscKwObjectRequest" nillable="true" type="tns:PobierzCalkowitaIloscKwRequest"/>
+  
+  <xs:element name="UzupelnijKwObjectRequest" nillable="true" type="tns:UzupelnijKwRequest"/>
+  
+  <xs:element name="PobierzWykazKsiegiWieczysteZaawansowaneRequest" nillable="true" type="tns:WyszukajKwZaawansowaneRequest"/>
+  
+  <xs:element name="PobierzKsiegeObjectRequest" nillable="true" type="tns:PobierzKsiegeRequestType"/>
+  
+  <xs:element name="PobierzKsiegeObjectResponse" nillable="true" type="tns:PobierzKsiegeResponseType"/>
+  
+  <xs:element name="WyszukajKwObjectRequest" nillable="true" type="tns:WyszukajKwRequest"/>
+  
+  <xs:element name="WyszukajKwXmlDrukRequest" nillable="true" type="tns:KryteriaNumerKsiegi"/>
+  
+  <xs:element name="WyszukajKwXmlDrukResponse" nillable="true" type="tns:DokumentKw"/>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="pobierzWykazKsiegiWieczysteResponse">
+    <wsdl:part element="tns:PobierzWykazKsiegiWieczysteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="utworzWniosek">
+    <wsdl:part element="tns:utworzWniosek" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWykazRejestrZdarzenSystemowych">
+    <wsdl:part element="tns:pobierzWykazRejestrZdarzenSystemowych" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uzupelnijKsiegi">
+    <wsdl:part element="tns:UzupelnijKwObjectRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzKwXmlDruk">
+    <wsdl:part element="tns:WyszukajKwXmlDrukRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzKwXmlResponse">
+    <wsdl:part element="tns:WyszukajKwXmlResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="zapiszHistorieWyszukiwania">
+    <wsdl:part element="tns:WyszukajKwForHistoricalSaveObjectRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWszystkieZdarzenia">
+    <wsdl:part element="tns:pobierzWszystkieZdarzenia" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="utworzZdarzenieSystemoweResponse">
+    <wsdl:part element="tns:UtworzZdarzenieSystemoweResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCalkowitaIloscKwResponse">
+    <wsdl:part element="tns:PobierzCalkowitaIloscKwObjectResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidationExceptionFault">
+    <wsdl:part element="ns1:ValidationException" name="ValidationExceptionFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWartoscParametruKonfiguracyjnegoPoKodzieResponse">
+    <wsdl:part element="ns1:pobierzWartoscParametruKonfiguracyjnegoPoKodzieResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="zapiszWniosek">
+    <wsdl:part element="tns:zapiszWniosek" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzListeWnioskowWgKryteriow">
+    <wsdl:part element="tns:pobierzListeWnioskowWgKryteriow" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWykazKsiegiWieczyste">
+    <wsdl:part element="tns:PobierzWykazKsiegiWieczysteRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWartoscParametruKonfiguracyjnegoPoKodzie">
+    <wsdl:part element="ns1:pobierzWartoscParametruKonfiguracyjnegoPoKodzie" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWniosekResponse">
+    <wsdl:part element="tns:pobierzWniosekResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="utworzZdarzenieSystemowe">
+    <wsdl:part element="tns:UtworzZdarzenieSystemoweRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWniosek">
+    <wsdl:part element="tns:pobierzWniosek" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uzupelnijKsiegiZaawansowane">
+    <wsdl:part element="tns:UzupelnijKwZaawansowaneObjectRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCalkowitaIloscKwZaawansowaneResponse">
+    <wsdl:part element="tns:PobierzCalkowitaIloscKwObjectResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzKsiegeResponse">
+    <wsdl:part element="tns:PobierzKsiegeObjectResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWszystkieZdarzeniaResponse">
+    <wsdl:part element="tns:pobierzWszystkieZdarzeniaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukWykazu">
+    <wsdl:part element="tns:pobierzWydrukWykazu" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uzupelnijKsiegiZaawansowaneResponse">
+    <wsdl:part element="tns:UzupelnijKwObjectResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzListeGrupUzytkownikow">
+    <wsdl:part element="tns:pobierzListeGrupUzytkownikow" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWyszukanieKW">
+    <wsdl:part element="tns:pobierzWyszukanieKW" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukPotwierdzenia">
+    <wsdl:part element="tns:pobierzWydrukPotwierdzeniaRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWyszukanieKWResponse">
+    <wsdl:part element="tns:pobierzWyszukanieKWResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukWnioskuResponse">
+    <wsdl:part element="tns:PobierzWydrukWnioskuResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="wyszukajKsiegiZaawansowane">
+    <wsdl:part element="tns:WyszukajKwZaawansowaneObjectRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uzupelnijKsiegiResponse">
+    <wsdl:part element="tns:UzupelnijKwObjectResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzStanKWResponse">
+    <wsdl:part element="tns:stanKW" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzHistorieWydrukuWniosku">
+    <wsdl:part element="tns:pobierzHistorieWydrukuWnioskuRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzKwXmlDrukResponse">
+    <wsdl:part element="tns:WyszukajKwXmlDrukResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWykazKsiegiWieczysteZaawansowaneResponse">
+    <wsdl:part element="tns:PobierzWykazKsiegiWieczysteResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="WyjatekWyszukiwania">
+    <wsdl:part element="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="wyszukajKsiegiResponse">
+    <wsdl:part element="tns:WyszukajKwObjectResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWykazKsiegiWieczysteZaawansowane">
+    <wsdl:part element="tns:PobierzWykazKsiegiWieczysteZaawansowaneRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzKwXml">
+    <wsdl:part element="tns:WyszukajKwXmlRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="aktualizujZdarzenieSystemoweResponse">
+    <wsdl:part element="tns:AktualizujZdarzenieSystemoweResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCountWnioskowWgKryteriow">
+    <wsdl:part element="tns:pobierzCountWnioskowWgKryteriow" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzZdarzenieSystemowe">
+    <wsdl:part element="tns:pobierzZdarzenieSystemowe" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCalkowitaLiczbeZdarzen">
+    <wsdl:part element="tns:pobierzCalkowitaLiczbeZdarzen" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="aktualizujZdarzenieSystemowe">
+    <wsdl:part element="tns:AktualizujZdarzenieSystemoweRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="wyszukajKsiegi">
+    <wsdl:part element="tns:WyszukajKwObjectRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzZdarzenieSystemoweResponse">
+    <wsdl:part element="tns:pobierzZdarzenieSystemoweResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzKsiege">
+    <wsdl:part element="tns:PobierzKsiegeObjectRequest" name="input">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCalkowitaIloscKwZaawansowane">
+    <wsdl:part element="tns:PobierzCalkowitaIloscKwZaawansowaneObjectRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="utworzWniosekResponse">
+    <wsdl:part element="tns:utworzWniosekResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzListeUzytkownikowResponse">
+    <wsdl:part element="tns:pobierzListeUzytkownikowResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="anulujWniosek">
+    <wsdl:part element="tns:anulujWniosek" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCountWnioskowWgKryteriowResponse">
+    <wsdl:part element="tns:pobierzCountWnioskow" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCalkowitaLiczbeZdarzenResponse">
+    <wsdl:part element="tns:pobierzCalkowitaLiczbeZdarzenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukHistoriiWydrukuResponse">
+    <wsdl:part element="tns:pobierzWydrukResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzListeWnioskowWgKryteriowResponse">
+    <wsdl:part element="tns:pobierzListeWnioskowWgKryteriowResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukWezwaniaResponse">
+    <wsdl:part element="tns:pobierzWydrukWezwaniaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="wyszukajKsiegiZaawansowaneResponse">
+    <wsdl:part element="tns:WyszukajKwObjectResponse" name="output">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukPotwierdzeniaResponse">
+    <wsdl:part element="tns:pobierzWydrukPotwierdzeniaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="WyjatekPobrania">
+    <wsdl:part element="tns:WyjatekPobrania" name="WyjatekPobrania">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukWezwania">
+    <wsdl:part element="tns:pobierzWydrukWezwania" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzListeUzytkownikow">
+    <wsdl:part element="tns:pobierzListeUzytkownikow" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukWniosku">
+    <wsdl:part element="tns:pobierzWydrukWniosku" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzStanKW">
+    <wsdl:part element="tns:numerKsiegi" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzListeGrupUzytkownikowResponse">
+    <wsdl:part element="tns:pobierzListeGrupUzytkownikowResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWykazRejestrZdarzenSystemowychResponse">
+    <wsdl:part element="tns:pobierzWykazRejestrZdarzenSystemowychResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukHistoriiWydruku">
+    <wsdl:part element="tns:pobierzWydrukHistoriiWydrukuRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzCalkowitaIloscKw">
+    <wsdl:part element="tns:PobierzCalkowitaIloscKwObjectRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzWydrukWykazuResponse">
+    <wsdl:part element="tns:pobierzWydrukWykazuResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pobierzHistorieWydrukuWnioskuResponse">
+    <wsdl:part element="tns:pobierzHistorieWydrukuWnioskuResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="eukw_channel_centralna_informacja">
+    <wsdl:operation name="pobierzCalkowitaIloscKwZaawansowane">
+      <wsdl:input message="tns:pobierzCalkowitaIloscKwZaawansowane" name="pobierzCalkowitaIloscKwZaawansowane">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzCalkowitaIloscKwZaawansowaneResponse" name="pobierzCalkowitaIloscKwZaawansowaneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="zapiszHistorieWyszukiwania">
+      <wsdl:input message="tns:zapiszHistorieWyszukiwania" name="zapiszHistorieWyszukiwania">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukPotwierdzenia">
+      <wsdl:input message="tns:pobierzWydrukPotwierdzenia" name="pobierzWydrukPotwierdzenia">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWydrukPotwierdzeniaResponse" name="pobierzWydrukPotwierdzeniaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzListeGrupUzytkownikow">
+      <wsdl:input message="tns:pobierzListeGrupUzytkownikow" name="pobierzListeGrupUzytkownikow">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzListeGrupUzytkownikowResponse" name="pobierzListeGrupUzytkownikowResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukWezwania">
+      <wsdl:input message="tns:pobierzWydrukWezwania" name="pobierzWydrukWezwania">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWydrukWezwaniaResponse" name="pobierzWydrukWezwaniaResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzHistorieWydrukuWniosku">
+      <wsdl:input message="tns:pobierzHistorieWydrukuWniosku" name="pobierzHistorieWydrukuWniosku">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzHistorieWydrukuWnioskuResponse" name="pobierzHistorieWydrukuWnioskuResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="wyszukajKsiegiZaawansowane">
+      <wsdl:input message="tns:wyszukajKsiegiZaawansowane" name="wyszukajKsiegiZaawansowane">
+    </wsdl:input>
+      <wsdl:output message="tns:wyszukajKsiegiZaawansowaneResponse" name="wyszukajKsiegiZaawansowaneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzZdarzenieSystemowe">
+      <wsdl:input message="tns:pobierzZdarzenieSystemowe" name="pobierzZdarzenieSystemowe">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzZdarzenieSystemoweResponse" name="pobierzZdarzenieSystemoweResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzCountWnioskowWgKryteriow">
+      <wsdl:input message="tns:pobierzCountWnioskowWgKryteriow" name="pobierzCountWnioskowWgKryteriow">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzCountWnioskowWgKryteriowResponse" name="pobierzCountWnioskowWgKryteriowResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzKwXml">
+      <wsdl:input message="tns:pobierzKwXml" name="pobierzKwXml">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzKwXmlResponse" name="pobierzKwXmlResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWykazKsiegiWieczyste">
+      <wsdl:input message="tns:pobierzWykazKsiegiWieczyste" name="pobierzWykazKsiegiWieczyste">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWykazKsiegiWieczysteResponse" name="pobierzWykazKsiegiWieczysteResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="uzupelnijKsiegiZaawansowane">
+      <wsdl:input message="tns:uzupelnijKsiegiZaawansowane" name="uzupelnijKsiegiZaawansowane">
+    </wsdl:input>
+      <wsdl:output message="tns:uzupelnijKsiegiZaawansowaneResponse" name="uzupelnijKsiegiZaawansowaneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="aktualizujZdarzenieSystemowe">
+      <wsdl:input message="tns:aktualizujZdarzenieSystemowe" name="aktualizujZdarzenieSystemowe">
+    </wsdl:input>
+      <wsdl:output message="tns:aktualizujZdarzenieSystemoweResponse" name="aktualizujZdarzenieSystemoweResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="utworzZdarzenieSystemowe">
+      <wsdl:input message="tns:utworzZdarzenieSystemowe" name="utworzZdarzenieSystemowe">
+    </wsdl:input>
+      <wsdl:output message="tns:utworzZdarzenieSystemoweResponse" name="utworzZdarzenieSystemoweResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzCalkowitaIloscKw">
+      <wsdl:input message="tns:pobierzCalkowitaIloscKw" name="pobierzCalkowitaIloscKw">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzCalkowitaIloscKwResponse" name="pobierzCalkowitaIloscKwResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="utworzWniosek">
+      <wsdl:input message="tns:utworzWniosek" name="utworzWniosek">
+    </wsdl:input>
+      <wsdl:output message="tns:utworzWniosekResponse" name="utworzWniosekResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWszystkieZdarzenia">
+      <wsdl:input message="tns:pobierzWszystkieZdarzenia" name="pobierzWszystkieZdarzenia">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWszystkieZdarzeniaResponse" name="pobierzWszystkieZdarzeniaResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWniosek">
+      <wsdl:input message="tns:pobierzWniosek" name="pobierzWniosek">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWniosekResponse" name="pobierzWniosekResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzCalkowitaLiczbeZdarzen">
+      <wsdl:input message="tns:pobierzCalkowitaLiczbeZdarzen" name="pobierzCalkowitaLiczbeZdarzen">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzCalkowitaLiczbeZdarzenResponse" name="pobierzCalkowitaLiczbeZdarzenResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWartoscParametruKonfiguracyjnegoPoKodzie">
+      <wsdl:input message="tns:pobierzWartoscParametruKonfiguracyjnegoPoKodzie" name="pobierzWartoscParametruKonfiguracyjnegoPoKodzie">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWartoscParametruKonfiguracyjnegoPoKodzieResponse" name="pobierzWartoscParametruKonfiguracyjnegoPoKodzieResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zapiszWniosek">
+      <wsdl:input message="tns:zapiszWniosek" name="zapiszWniosek">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="uzupelnijKsiegi">
+      <wsdl:input message="tns:uzupelnijKsiegi" name="uzupelnijKsiegi">
+    </wsdl:input>
+      <wsdl:output message="tns:uzupelnijKsiegiResponse" name="uzupelnijKsiegiResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzListeWnioskowWgKryteriow">
+      <wsdl:input message="tns:pobierzListeWnioskowWgKryteriow" name="pobierzListeWnioskowWgKryteriow">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzListeWnioskowWgKryteriowResponse" name="pobierzListeWnioskowWgKryteriowResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWyszukanieKW">
+      <wsdl:input message="tns:pobierzWyszukanieKW" name="pobierzWyszukanieKW">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWyszukanieKWResponse" name="pobierzWyszukanieKWResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukWykazu">
+      <wsdl:input message="tns:pobierzWydrukWykazu" name="pobierzWydrukWykazu">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWydrukWykazuResponse" name="pobierzWydrukWykazuResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWykazKsiegiWieczysteZaawansowane">
+      <wsdl:input message="tns:pobierzWykazKsiegiWieczysteZaawansowane" name="pobierzWykazKsiegiWieczysteZaawansowane">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWykazKsiegiWieczysteZaawansowaneResponse" name="pobierzWykazKsiegiWieczysteZaawansowaneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukWniosku">
+      <wsdl:input message="tns:pobierzWydrukWniosku" name="pobierzWydrukWniosku">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWydrukWnioskuResponse" name="pobierzWydrukWnioskuResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekPobrania" name="WyjatekPobrania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzStanKW">
+      <wsdl:input message="tns:pobierzStanKW" name="pobierzStanKW">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzStanKWResponse" name="pobierzStanKWResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="anulujWniosek">
+      <wsdl:input message="tns:anulujWniosek" name="anulujWniosek">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzKsiege">
+      <wsdl:input message="tns:pobierzKsiege" name="pobierzKsiege">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzKsiegeResponse" name="pobierzKsiegeResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekPobrania" name="WyjatekPobrania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWykazRejestrZdarzenSystemowych">
+      <wsdl:input message="tns:pobierzWykazRejestrZdarzenSystemowych" name="pobierzWykazRejestrZdarzenSystemowych">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWykazRejestrZdarzenSystemowychResponse" name="pobierzWykazRejestrZdarzenSystemowychResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="wyszukajKsiegi">
+      <wsdl:input message="tns:wyszukajKsiegi" name="wyszukajKsiegi">
+    </wsdl:input>
+      <wsdl:output message="tns:wyszukajKsiegiResponse" name="wyszukajKsiegiResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:WyjatekWyszukiwania" name="WyjatekWyszukiwania">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukHistoriiWydruku">
+      <wsdl:input message="tns:pobierzWydrukHistoriiWydruku" name="pobierzWydrukHistoriiWydruku">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzWydrukHistoriiWydrukuResponse" name="pobierzWydrukHistoriiWydrukuResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ValidationExceptionFault" name="ValidationExceptionFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzKwXmlDruk">
+      <wsdl:input message="tns:pobierzKwXmlDruk" name="pobierzKwXmlDruk">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzKwXmlDrukResponse" name="pobierzKwXmlDrukResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzListeUzytkownikow">
+      <wsdl:input message="tns:pobierzListeUzytkownikow" name="pobierzListeUzytkownikow">
+    </wsdl:input>
+      <wsdl:output message="tns:pobierzListeUzytkownikowResponse" name="pobierzListeUzytkownikowResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EUKWKomponentUslugowyCentralnaInformacjaServiceSoapBinding" type="tns:eukw_channel_centralna_informacja">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="pobierzCalkowitaIloscKwZaawansowane">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzCalkowitaIloscKwZaawansowane" style="document"/>
+      <wsdl:input name="pobierzCalkowitaIloscKwZaawansowane">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzCalkowitaIloscKwZaawansowaneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzListeGrupUzytkownikow">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzListeGrupUzytkownikow" style="document"/>
+      <wsdl:input name="pobierzListeGrupUzytkownikow">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzListeGrupUzytkownikowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukPotwierdzenia">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWydrukPotwierdzenia" style="document"/>
+      <wsdl:input name="pobierzWydrukPotwierdzenia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWydrukPotwierdzeniaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zapiszHistorieWyszukiwania">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/zapiszHistorieWyszukiwania" style="document"/>
+      <wsdl:input name="zapiszHistorieWyszukiwania">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukWezwania">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWydrukWezwania" style="document"/>
+      <wsdl:input name="pobierzWydrukWezwania">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWydrukWezwaniaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzHistorieWydrukuWniosku">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzHistorieWydrukuWniosku" style="document"/>
+      <wsdl:input name="pobierzHistorieWydrukuWniosku">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzHistorieWydrukuWnioskuResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzZdarzenieSystemowe">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzZdarzenieSystemowe" style="document"/>
+      <wsdl:input name="pobierzZdarzenieSystemowe">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzZdarzenieSystemoweResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="wyszukajKsiegiZaawansowane">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/wyszukajKsiegiZaawansowane" style="document"/>
+      <wsdl:input name="wyszukajKsiegiZaawansowane">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="wyszukajKsiegiZaawansowaneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzCountWnioskowWgKryteriow">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzCountWnioskowWgKryteriow" style="document"/>
+      <wsdl:input name="pobierzCountWnioskowWgKryteriow">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzCountWnioskowWgKryteriowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzKwXml">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzKwXml" style="document"/>
+      <wsdl:input name="pobierzKwXml">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzKwXmlResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWykazKsiegiWieczyste">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWykazKsiegiWieczyste" style="document"/>
+      <wsdl:input name="pobierzWykazKsiegiWieczyste">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWykazKsiegiWieczysteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="uzupelnijKsiegiZaawansowane">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/uzupelnijKsiegiZaawansowane" style="document"/>
+      <wsdl:input name="uzupelnijKsiegiZaawansowane">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uzupelnijKsiegiZaawansowaneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="aktualizujZdarzenieSystemowe">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/aktualizujZdarzenieSystemowe" style="document"/>
+      <wsdl:input name="aktualizujZdarzenieSystemowe">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="aktualizujZdarzenieSystemoweResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="utworzZdarzenieSystemowe">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/utworzZdarzenieSystemowe" style="document"/>
+      <wsdl:input name="utworzZdarzenieSystemowe">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="utworzZdarzenieSystemoweResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzCalkowitaIloscKw">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzCalkowitaIloscKw" style="document"/>
+      <wsdl:input name="pobierzCalkowitaIloscKw">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzCalkowitaIloscKwResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="utworzWniosek">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/utworzWniosek" style="document"/>
+      <wsdl:input name="utworzWniosek">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="utworzWniosekResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWszystkieZdarzenia">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWszystkieZdarzenia" style="document"/>
+      <wsdl:input name="pobierzWszystkieZdarzenia">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWszystkieZdarzeniaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzCalkowitaLiczbeZdarzen">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzCalkowitaLiczbeZdarzen" style="document"/>
+      <wsdl:input name="pobierzCalkowitaLiczbeZdarzen">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzCalkowitaLiczbeZdarzenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWniosek">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWniosek" style="document"/>
+      <wsdl:input name="pobierzWniosek">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWniosekResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWartoscParametruKonfiguracyjnegoPoKodzie">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWartoscParametruKonfiguracyjnegoPoKodzie" style="document"/>
+      <wsdl:input name="pobierzWartoscParametruKonfiguracyjnegoPoKodzie">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWartoscParametruKonfiguracyjnegoPoKodzieResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzListeWnioskowWgKryteriow">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzListeWnioskowWgKryteriow" style="document"/>
+      <wsdl:input name="pobierzListeWnioskowWgKryteriow">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzListeWnioskowWgKryteriowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="uzupelnijKsiegi">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/uzupelnijKsiegi" style="document"/>
+      <wsdl:input name="uzupelnijKsiegi">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uzupelnijKsiegiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="zapiszWniosek">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/zapiszWniosek" style="document"/>
+      <wsdl:input name="zapiszWniosek">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukWykazu">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWydrukWykazu" style="document"/>
+      <wsdl:input name="pobierzWydrukWykazu">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWydrukWykazuResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWyszukanieKW">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWyszukanieKW" style="document"/>
+      <wsdl:input name="pobierzWyszukanieKW">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWyszukanieKWResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWykazKsiegiWieczysteZaawansowane">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWykazKsiegiWieczysteZaawansowane" style="document"/>
+      <wsdl:input name="pobierzWykazKsiegiWieczysteZaawansowane">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWykazKsiegiWieczysteZaawansowaneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukWniosku">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWydrukWniosku" style="document"/>
+      <wsdl:input name="pobierzWydrukWniosku">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWydrukWnioskuResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekPobrania">
+        <soap:fault name="WyjatekPobrania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="anulujWniosek">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/anulujWniosek" style="document"/>
+      <wsdl:input name="anulujWniosek">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzStanKW">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzStanKW" style="document"/>
+      <wsdl:input name="pobierzStanKW">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzStanKWResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzKsiege">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzKsiege" style="document"/>
+      <wsdl:input name="pobierzKsiege">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzKsiegeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekPobrania">
+        <soap:fault name="WyjatekPobrania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWykazRejestrZdarzenSystemowych">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWykazRejestrZdarzenSystemowych" style="document"/>
+      <wsdl:input name="pobierzWykazRejestrZdarzenSystemowych">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWykazRejestrZdarzenSystemowychResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzKwXmlDruk">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzKwXmlDruk" style="document"/>
+      <wsdl:input name="pobierzKwXmlDruk">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzKwXmlDrukResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzWydrukHistoriiWydruku">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzWydrukHistoriiWydruku" style="document"/>
+      <wsdl:input name="pobierzWydrukHistoriiWydruku">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzWydrukHistoriiWydrukuResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault name="ValidationExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="wyszukajKsiegi">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/wyszukajKsiegi" style="document"/>
+      <wsdl:input name="wyszukajKsiegi">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="wyszukajKsiegiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WyjatekWyszukiwania">
+        <soap:fault name="WyjatekWyszukiwania" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="pobierzListeUzytkownikow">
+      <soap:operation soapAction="http://ms.gov.pl/ekw/channel/centralnainformacja/pobierzListeUzytkownikow" style="document"/>
+      <wsdl:input name="pobierzListeUzytkownikow">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pobierzListeUzytkownikowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EUKWKomponentUslugowyCentralnaInformacjaService">
+    <wsdl:port binding="tns:EUKWKomponentUslugowyCentralnaInformacjaServiceSoapBinding" name="eukw_channel_centralna_informacjaPort">
+      <soap:address location="http://172.25.117.87:18080/eukw_centralna_informacja/EUKWKomponentUslugowyCentralnaInformacjaService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

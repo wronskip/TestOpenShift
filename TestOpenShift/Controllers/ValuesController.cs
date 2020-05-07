@@ -19,12 +19,31 @@ namespace TestOpenShift.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<string>> Get(int id)
+        public async Task<ActionResult<ServiceReferenceEBI.getBookXMLResponse1>> Get(int id)
         {
-            ServiceReferenceTemp.ServiceClient client = new ServiceReferenceTemp.ServiceClient();
+            //ServiceReferenceTemp.ServiceClient client = new ServiceReferenceTemp.ServiceClient();
+            //try
+            //{
+            //    return await client.GetDataAsync(id);
+            //}
+            //finally
+
+            //{
+            //    if (client != null)
+            //    {
+            //        ((IDisposable)client).Dispose();
+            //    }
+
+            //}
+         
+            ServiceReferenceEBI.WSCitationImplClient client = new ServiceReferenceEBI.WSCitationImplClient();
+
+          
+
+         
             try
             {
-                return await client.GetDataAsync(id);
+                return await client.getBookXMLAsync("1", "1", "1@wp.pl");
             }
             finally
 

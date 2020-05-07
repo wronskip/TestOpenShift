@@ -15,3 +15,6 @@ C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\obj\Debug\netcoreapp2.1\TestO
 C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\obj\Debug\netcoreapp2.1\TestOpenShift.dll
 C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\obj\Debug\netcoreapp2.1\TestOpenShift.pdb
 C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\bin\Debug\netcoreapp2.1\Connected Services\ServiceReferenceTemp\ConnectedService.json
+C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\bin\Debug\netcoreapp2.1\Connected Services\Microsoft WCF Web Service Reference Provider\ConnectedService.json
+C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\bin\Debug\netcoreapp2.1\Connected Services\ServiceReferenceEBI\ConnectedService.json
+C:\PRACA\WORK\2020\GIT\TestOpenShift\TestOpenShift\bin\Debug\netcoreapp2.1\OpenAPIs\EUKWKomponentUslugowyCentralnaInformacjaService.json
