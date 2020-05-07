@@ -43,7 +43,7 @@ namespace TestOpenShift.Controllers
          
             try
             {
-                return await client.getBookXMLAsync("1", "1", "1@wp.pl");
+                return await client.getBookXMLAsync(id.ToString(), id.ToString(), id.ToString() +"@wp.pl");
             }
             finally
 
